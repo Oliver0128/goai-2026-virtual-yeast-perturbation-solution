@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Final YeaFiLM-CRVAE dependency and artifact manifest",
+  "pipeline": {
+    "name": "YeaFiLM-CRVAE",
+    "stages": [
+      {
+        "stage": 1,
+        "role": "base_prediction",
+        "workspace_checkpoint": "experiments/20260816-1658_b10-a2-film-cross-mlp-seed42/model.pt",
+        "package_checkpoint": "models/e7/model.pt",
+        "sha256": "7f567e9b7d959459e56123ed464eaa101498ae52654bec42b4e981d49da0faf0"
+      },
+      {
+        "stage": 2,
+        "role": "conditional_prior_residual_correction",
+        "workspace_checkpoint": "experiments/20260816-2017_b16-a2-conditional-residual-vae-seed42/model.pt",
+        "package_checkpoint": "models/crvae/model.pt",
+        "sha256": "501e1158332b464c86daddb56b9a1837be19dfcfc2ddd315a5943734d205a9ad"
+      }
+    ],
+    "binding": {
+      "cvae_frozen_e7_model_sha256": "7f567e9b7d959459e56123ed464eaa101498ae52654bec42b4e981d49da0faf0",
+      "cvae_frozen_e7_core_sha256": "4c56d1c17ab0a040b39f8e360f62ce7e55f21280e88f03b7533c2eb1146cda69",
+      "protein_axis_count": 4422
+    }
+  },
+  "required_for_truth_free_inference": [
+    {"path": "code/submission/predict.py", "sha256": "da2b139dce1778ef03cd79e2144f8fe2a3b6e4f0f8e246c882cbe8de67c9fd16"},
+    {"path": "code/methods/b10-a2-film-cross-mlp/core.py", "sha256": "4c56d1c17ab0a040b39f8e360f62ce7e55f21280e88f03b7533c2eb1146cda69"},
+    {"path": "code/methods/b16-a2-conditional-residual-vae/core.py", "sha256": "31a7d4d208b527850418bae4da30db32b14b59004eae09e2ce7de0dba1e0eaf1"},
+    {"path": "models/e7/model.pt", "sha256": "7f567e9b7d959459e56123ed464eaa101498ae52654bec42b4e981d49da0faf0"},
+    {"path": "models/crvae/model.pt", "sha256": "501e1158332b464c86daddb56b9a1837be19dfcfc2ddd315a5943734d205a9ad"},
+    {"path": "data/inference-metadata/WAYB_WAYC_metadata_test(1).csv", "sha256": "42f2df9ea79f28da8344e96b5181edacc215744a858d1a4eaa729c2e1cc69d31"},
+    {"path": "data/compound-structure/fingerprints.npz", "sha256": "d2cb4f5398182642209482624bec6c7f2da0fec9cd8425a26ac9638712f484df"},
+    {"path": "data/compound-structure/identifiers.csv", "sha256": "6def6b7f6624cdf5264dd7b1a6cf9a71e7aeafe88c9e2fe5209aa6bd451708a7"},
+    {"path": "data/compound-structure/contract.csv", "sha256": "cbf5f6a1b5feb0202d91b5e58c123bee89354b6e86b1e534b55b3a600fa8a327"},
+    {"path": "data/compound-structure/manifest.json", "sha256": "29e02abff4fd50ecf5376e7cdc1d3d7ee896063285df0064368dbea6f3ed4332"},
+    {"path": "data/compound-structure/pubchem-properties.json", "sha256": "c1185c82564a1c699ca8941e5a47849834cfb6e4a351d8429cae02e1d5ccc24b"}
+  ],
+  "required_for_retraining": [
+    "code/methods/b10-a2-film-cross-mlp/run.py",
+    "code/methods/b10-a2-film-cross-mlp/runner.py",
+    "code/methods/b10-a2-film-cross-mlp/config.json",
+    "code/methods/b16-a2-conditional-residual-vae/run.py",
+    "code/methods/b16-a2-conditional-residual-vae/runner.py",
+    "code/methods/b16-a2-conditional-residual-vae/config.json",
+    "code/methods/_shared/goai_baselines/",
+    "code/evaluation/official-six-module-scorer/",
+    "data/official/WAYB_WAYC_metadata_train_val(1).csv",
+    "data/official/WAYB_WAYC_proteome_raw_train_val.csv",
+    "data/compound-structure/fingerprints.npz",
+    "data/compound-structure/contract.csv",
+    "data/compound-structure/manifest.json",
+    "scripts/train_e7.sh",
+    "scripts/train_crvae.sh",
+    "scripts/retrain_all.sh"
+  ],
+  "rdkit_pubchem_contract": {
+    "database": "PubChem PUG-REST",
+    "access_date": "2026-08-16",
+    "compound_count": 56,
+    "rdkit_version": "2026.3.5",
+    "structure_input": "Isomeric SMILES",
+    "fragment_parent": "RDKit FragmentParent with explicit Cisplatin and NaCl exceptions",
+    "morgan": {"radius": 2, "fp_size": 2048, "include_chirality": true, "use_bond_types": true},
+    "descriptors": ["mol_wt", "mol_logp", "tpsa", "hbd", "hba"],
+    "pubchem_properties_sha256": "c1185c82564a1c699ca8941e5a47849834cfb6e4a351d8429cae02e1d5ccc24b",
+    "raw_pubchem_responses_in_package": false,
+    "raw_response_policy": "Use the frozen derived files for inference; rebuild raw responses only under the documented external-data contract."
+  },
+  "private_reproducibility_only": [
+    "data/official/WAYB_WAYC_metadata_train_val(1).csv",
+    "data/official/WAYB_WAYC_proteome_raw_train_val.csv",
+    "models/e7/manifest.json",
+    "models/crvae/manifest.json",
+    "models/e7/training-history.json",
+    "models/crvae/training-history.json",
+    "code/evaluation/official-six-module-scorer/"
+  ],
+  "training_only_or_research_only_not_required_for_final_inference": [
+    "features/b16-e7-oof-residual/e7-oof-predictions.npz",
+    "features/b16-e7-oof-residual/folds/",
+    "features/compound-knowledge/",
+    "features/protein-identity/",
+    "features/strain-genome/",
+    "local-artifacts/references/external-knowledge/raw/",
+    "GO/QuickGO annotations, STRING/PPI, ChEMBL activity/mechanism tables, strain-genome/proteome features"
+  ],
+  "boundary": {
+    "test_proteome_truth_in_package": false,
+    "truth_loaded": false,
+    "posterior_called": false,
+    "public_git_submission": "Do not include this private package, organizer data or weights unless the competition submission channel explicitly authorizes them."
+  }
+}

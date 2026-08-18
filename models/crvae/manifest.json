@@ -1,0 +1,452 @@
+{
+  "schema_version": "1.0",
+  "method_id": "b16-a2-conditional-residual-vae",
+  "variant_id": "frozen-e7-dense-bypass-plus-prior-mean-residual-cvae",
+  "deployable": true,
+  "diagnostic_only": false,
+  "generated_at": "2026-08-16T20:19:28.492024+08:00",
+  "data_contract": {
+    "metadata_sha256": "9414f22d71e925a3b85544b49fde252613c87808d34738a84785003adb8131ef",
+    "proteome_sha256": "a15d9a40a6ad4e8e84a4ce4ed08644fce78780d31ace5561928517c4a5fa7ccb",
+    "sample_axis_sha256": "a2bde66162df191b5d7dc6c42773a564a67420802aa643cd90a0a2ad55a94a7d",
+    "protein_axis_sha256": "f112e7fffae4d3158ec9985a6c9cfa25e1a7dd40f847092561ea023bc1d8a45f",
+    "train_rows": 5920,
+    "fit_rows_excluding_qc": 5829,
+    "matched_train_treatment_rows": 5066,
+    "unmatched_train_treatment_rows": 12,
+    "validation_target_rows": 2806,
+    "validation_treatment_rows_for_early_stopping": 2806,
+    "retained_proteins": 4422,
+    "missing_rate_threshold": 0.8,
+    "test_proteome_loaded": false,
+    "official_validation_used_for_gradient_training": false,
+    "official_validation_used_for_early_stopping": true,
+    "validation_target_entered_posterior_encoder": false,
+    "test_target_entered_posterior_encoder": false,
+    "protein_filter_fit_scope": "split_final=train only",
+    "metadata_categories_and_numeric_statistics_fit_scope": "non-QC split_final=train rows only",
+    "descriptor_statistics_fit_scope": "non-QC split_final=train rows only",
+    "validation_or_test_truth_used_for_features": false
+  },
+  "input_hashes": {
+    "config_sha256": "e4edc05553887a7378bb3bd203eb8622b6b88de0f4ab784e932df6871739ccf6",
+    "structure_npz_sha256": "d2cb4f5398182642209482624bec6c7f2da0fec9cd8425a26ac9638712f484df",
+    "structure_contract_sha256": "cbf5f6a1b5feb0202d91b5e58c123bee89354b6e86b1e534b55b3a600fa8a327",
+    "structure_manifest_sha256": "29e02abff4fd50ecf5376e7cdc1d3d7ee896063285df0064368dbea6f3ed4332",
+    "score_config_sha256": "932a8791d14f813f5bca47b1935f04f7356b66984020f220abbed1a8ac324da2",
+    "frozen_e7_model_sha256": "7f567e9b7d959459e56123ed464eaa101498ae52654bec42b4e981d49da0faf0",
+    "frozen_e7_manifest_sha256": "fbbb6697a76374ff1312c314b986329a4fd0674b0f2d9d82826e28dfe17b25df",
+    "frozen_e7_core_sha256": "4c56d1c17ab0a040b39f8e360f62ce7e55f21280e88f03b7533c2eb1146cda69"
+  },
+  "output_hashes": {
+    "prediction_sha256": "19656cfca94c1bf45560e78531bd3148f4c03d324bd3783c00027e40fe89adb2",
+    "model_sha256": "501e1158332b464c86daddb56b9a1837be19dfcfc2ddd315a5943734d205a9ad",
+    "history_sha256": "626688d23b0251d4ac45a40be050eb588dcbcf233700a7d9bef9d0dcd911bfbf",
+    "latent_audit_sha256": "13c3d5a33f0ec3e98bd8897338f882b635dd6166dfd951c11c7a4b4c8a147cff",
+    "metrics_sha256": "60e19de42444aa65901017d242b8635084354a7c1d80ea423ae29e133f1892ee"
+  },
+  "wandb": {
+    "mode": "online",
+    "project": "goai-2026-virtual-yeast-perturbation",
+    "entity": "oliver0128",
+    "run_id": "u9tnpgvi",
+    "run_name": "20260816-2017_b16-a2-conditional-residual-vae-seed42",
+    "run_path": "oliver0128/goai-2026-virtual-yeast-perturbation/u9tnpgvi",
+    "run_url": "https://wandb.ai/oliver0128/goai-2026-virtual-yeast-perturbation/runs/u9tnpgvi",
+    "cloud_synced": true,
+    "model_artifact_uploaded": false,
+    "prediction_uploaded": false
+  },
+  "runtime": {
+    "python": "3.13.14",
+    "torch": "2.13.0+cu132",
+    "device": "cuda:0",
+    "device_name": "NVIDIA H100 PCIe",
+    "cuda_visible_devices": "1",
+    "runtime_device_mapping": "runtime cuda:0 maps to physical GPU 1",
+    "peak_gpu_memory_allocated_bytes": 190413824,
+    "elapsed_seconds": 128.51732712611556,
+    "omp_num_threads": "2",
+    "mkl_num_threads": "2",
+    "distributed_training": false,
+    "gpu_allocation_note": "physical GPU1 used because GPU2 was occupied by the parallel OOF build; same-card top-level concurrency was approved"
+  },
+  "method_details": {
+    "architecture": "frozen E7 full-rank dense prediction plus zero-initialized bounded latent-64 conditional residual VAE",
+    "frozen_e7_parameter_count": 2007366,
+    "additional_trainable_parameter_count": 1148070,
+    "additional_parameter_budget": 1500000,
+    "additional_parameter_budget_pass": true,
+    "posterior_input": "frozen E7 fusion context plus train-only masked E7 residual target",
+    "prior_input": "frozen E7 metadata/RDKit fusion context only",
+    "inference": "conditional prior mean only; deterministic; no target proteins and no latent sampling",
+    "residual": {
+      "zero_initialized": true,
+      "bound": 0.75,
+      "correction_abs_mean": 0.020368220325690443,
+      "correction_abs_max": 0.21554306149482727,
+      "correction_saturation_fraction": 0.0,
+      "inference_distribution": "prior_mean",
+      "posterior_calls": 0
+    },
+    "loss": {
+      "absolute_posterior": "protein-space elementwise masked MSE",
+      "absolute_prior": "protein-space elementwise masked MSE",
+      "lambda_prior_absolute": 0.5,
+      "paired_delta": "train-only exact-control protein-space masked MSE using prior-mean predictions",
+      "lambda_delta": 0.05,
+      "kl_beta_max": 0.002,
+      "kl_warmup_epochs": 30,
+      "kl_free_bits_per_dim": 0.02
+    },
+    "best_epoch_from_official_validation": 1,
+    "epoch_zero_is_exact_e7_bypass": true,
+    "seed": 42,
+    "paired_delta_manifest": {
+      "fit_scope": "non-QC split_final=train rows only",
+      "matching_keys": [
+        "data_source",
+        "Strains",
+        "Medium",
+        "Temperature",
+        "pert_time",
+        "pert_time_unit",
+        "instrument",
+        "Yeast_cell_plate"
+      ],
+      "control_labels": [
+        "Water",
+        "DMSO"
+      ],
+      "treatment_rows": 5078,
+      "matched_treatment_rows": 5066,
+      "unmatched_treatment_rows": 12,
+      "control_rows": 751,
+      "matched_control_row_uses": 10961,
+      "mixed_control_label_treatments": 4503,
+      "target": "treatment log2 truth minus exact-key train-control nanmean",
+      "validation_or_test_rows_accepted": false
+    },
+    "latent_collapse_audit": {
+      "schema_version": "1.0",
+      "audit_scope": "non-QC split_final=train rows only",
+      "validation_posterior_calls": 0,
+      "test_posterior_calls": 0,
+      "inference_distribution": "conditional prior mean only; no sampling",
+      "latent_dim": 64,
+      "raw_kl_nats_per_sample_mean": 10.083827018737793,
+      "raw_kl_nats_per_sample_median": 9.53603458404541,
+      "raw_kl_per_dimension_mean": 0.15755979716777802,
+      "active_units_q_mu_variance_gt_0p01": 64,
+      "q_mu_variance_mean": 0.45338544249534607,
+      "q_mu_variance_max": 1.3881089687347412,
+      "prior_mu_variance_mean": 0.04809430241584778,
+      "posterior_prior_mu_abs_gap_mean": 0.5214253067970276,
+      "train_masked_rmse": {
+        "e7": 0.2917437705815197,
+        "prior": 0.2900563190473748,
+        "posterior_mean": 0.2807695095622506
+      },
+      "collapse_rule": "flag if active_units<5 or mean raw KL<0.1 nat/sample",
+      "posterior_collapse_flag": false
+    },
+    "metadata_feature_manifest": {
+      "feature_count": 60,
+      "feature_names": [
+        "Strains=BAH",
+        "Strains=CEK",
+        "Strains=CGD",
+        "Strains=DHY210",
+        "perturbation_no_concentration=(1R, 2S, 5R) - (-) - Menthol",
+        "perturbation_no_concentration=1-10 Phenanthroline monohydrate",
+        "perturbation_no_concentration=4-Hydroxytamoxifen",
+        "perturbation_no_concentration=Amiodarone hydrochloride",
+        "perturbation_no_concentration=Anisomycin",
+        "perturbation_no_concentration=Artemisinin",
+        "perturbation_no_concentration=Brefeldin A",
+        "perturbation_no_concentration=CHX",
+        "perturbation_no_concentration=Cisplatin",
+        "perturbation_no_concentration=Clomiphene citrate",
+        "perturbation_no_concentration=Clotrimazole",
+        "perturbation_no_concentration=Cyclopiazonic acid",
+        "perturbation_no_concentration=DMSO",
+        "perturbation_no_concentration=Desipramine hydrochloride",
+        "perturbation_no_concentration=Dyclonine hydrochloride",
+        "perturbation_no_concentration=EDTA",
+        "perturbation_no_concentration=Emodin",
+        "perturbation_no_concentration=Geldanamycin",
+        "perturbation_no_concentration=Haloperidol",
+        "perturbation_no_concentration=Harmine hydrochloride",
+        "perturbation_no_concentration=Hoechst 33258",
+        "perturbation_no_concentration=LY 294002 hydrochloride",
+        "perturbation_no_concentration=NaCl",
+        "perturbation_no_concentration=Nigericin",
+        "perturbation_no_concentration=Nocodazole",
+        "perturbation_no_concentration=Nystatin dihydrate",
+        "perturbation_no_concentration=Oligomycin",
+        "perturbation_no_concentration=Parthenolide",
+        "perturbation_no_concentration=Rapamycin",
+        "perturbation_no_concentration=SDS",
+        "perturbation_no_concentration=Sorbitol",
+        "perturbation_no_concentration=Staurosporine",
+        "perturbation_no_concentration=Trichostatin A",
+        "perturbation_no_concentration=Trifluoperazine dihydrochloride",
+        "perturbation_no_concentration=Tunicamycin",
+        "perturbation_no_concentration=U-73122",
+        "perturbation_no_concentration=Valinomycin",
+        "perturbation_no_concentration=Water",
+        "perturbation_no_concentration=Wortmannin",
+        "Medium=YNB+CSM+2% galactose",
+        "Medium=YNB+CSM+2% glucose",
+        "Temperature=30",
+        "Temperature=37",
+        "pert_time_unit=min",
+        "data_source=WAYB",
+        "data_source=WAYB_rep1",
+        "data_source=WAYB_rep2",
+        "data_source=WAYC",
+        "instrument=CAA",
+        "instrument=CAB",
+        "instrument=CAC",
+        "instrument=O",
+        "instrument=QE1",
+        "instrument=QE2",
+        "instrument=WAH",
+        "log2(pert_time)"
+      ],
+      "feature_slices": {
+        "Strains": [
+          0,
+          4
+        ],
+        "perturbation_no_concentration": [
+          4,
+          43
+        ],
+        "Medium": [
+          43,
+          45
+        ],
+        "Temperature": [
+          45,
+          47
+        ],
+        "pert_time_unit": [
+          47,
+          48
+        ],
+        "data_source": [
+          48,
+          52
+        ],
+        "instrument": [
+          52,
+          59
+        ]
+      },
+      "categorical": {
+        "Strains": {
+          "categories": [
+            "BAH",
+            "CEK",
+            "CGD",
+            "DHY210"
+          ],
+          "target_unseen_categories": [
+            "BAI"
+          ],
+          "target_rows_with_unseen": 1602
+        },
+        "perturbation_no_concentration": {
+          "categories": [
+            "(1R, 2S, 5R) - (-) - Menthol",
+            "1-10 Phenanthroline monohydrate",
+            "4-Hydroxytamoxifen",
+            "Amiodarone hydrochloride",
+            "Anisomycin",
+            "Artemisinin",
+            "Brefeldin A",
+            "CHX",
+            "Cisplatin",
+            "Clomiphene citrate",
+            "Clotrimazole",
+            "Cyclopiazonic acid",
+            "DMSO",
+            "Desipramine hydrochloride",
+            "Dyclonine hydrochloride",
+            "EDTA",
+            "Emodin",
+            "Geldanamycin",
+            "Haloperidol",
+            "Harmine hydrochloride",
+            "Hoechst 33258",
+            "LY 294002 hydrochloride",
+            "NaCl",
+            "Nigericin",
+            "Nocodazole",
+            "Nystatin dihydrate",
+            "Oligomycin",
+            "Parthenolide",
+            "Rapamycin",
+            "SDS",
+            "Sorbitol",
+            "Staurosporine",
+            "Trichostatin A",
+            "Trifluoperazine dihydrochloride",
+            "Tunicamycin",
+            "U-73122",
+            "Valinomycin",
+            "Water",
+            "Wortmannin"
+          ],
+          "target_unseen_categories": [
+            "Amphotericin B",
+            "FCCP",
+            "Hydroxyurea",
+            "Pentamidine isethionate",
+            "Raloxifene hydrochloride",
+            "Sulfometuron methyl"
+          ],
+          "target_rows_with_unseen": 1334
+        },
+        "Medium": {
+          "categories": [
+            "YNB+CSM+2% galactose",
+            "YNB+CSM+2% glucose"
+          ],
+          "target_unseen_categories": [],
+          "target_rows_with_unseen": 0
+        },
+        "Temperature": {
+          "categories": [
+            "30",
+            "37"
+          ],
+          "target_unseen_categories": [],
+          "target_rows_with_unseen": 0
+        },
+        "pert_time_unit": {
+          "categories": [
+            "min"
+          ],
+          "target_unseen_categories": [],
+          "target_rows_with_unseen": 0
+        },
+        "data_source": {
+          "categories": [
+            "WAYB",
+            "WAYB_rep1",
+            "WAYB_rep2",
+            "WAYC"
+          ],
+          "target_unseen_categories": [],
+          "target_rows_with_unseen": 0
+        },
+        "instrument": {
+          "categories": [
+            "CAA",
+            "CAB",
+            "CAC",
+            "O",
+            "QE1",
+            "QE2",
+            "WAH"
+          ],
+          "target_unseen_categories": [],
+          "target_rows_with_unseen": 0
+        }
+      },
+      "numeric": {
+        "pert_time": {
+          "transform": "log2_zscore",
+          "mean": 6.004819685194862,
+          "scale": 1.3129122905292678
+        }
+      },
+      "unseen_policy": "all-zero block for categories absent from split_final=train"
+    },
+    "structure_feature_manifest": {
+      "compound_column": "perturbation_no_concentration",
+      "artifact_entity_count": 56,
+      "fingerprint_dimension": 2048,
+      "descriptor_names": [
+        "mol_wt",
+        "mol_logp",
+        "tpsa",
+        "hbd",
+        "hba"
+      ],
+      "descriptor_mean": [
+        334.9511501517094,
+        1.499689863667181,
+        85.72359807725672,
+        2.0171556013038257,
+        4.683822267970492
+      ],
+      "descriptor_scale": [
+        246.21283066598065,
+        3.1724557853100896,
+        74.3091616871715,
+        2.462492159220066,
+        4.108293133662718
+      ],
+      "descriptor_scaling_fit_scope": "fit rows only",
+      "fit_rows": 5829,
+      "fit_structure_coverage_rows": 5829,
+      "fit_unseen_identity_rows": 0,
+      "target_rows": 2806,
+      "target_structure_coverage_rows": 2806,
+      "target_unseen_identity_rows": 1334,
+      "mask_columns": [
+        "structure_available",
+        "identity_seen_in_fit"
+      ],
+      "missing_structure_policy": "zero fingerprint and descriptor plus structure_available=0",
+      "unseen_identity_policy": "public structure retained plus identity_seen_in_fit=0"
+    },
+    "dual_input_manifest": {
+      "condition_feature_count": 21,
+      "condition_feature_names": [
+        "Strains=BAH",
+        "Strains=CEK",
+        "Strains=CGD",
+        "Strains=DHY210",
+        "Medium=YNB+CSM+2% galactose",
+        "Medium=YNB+CSM+2% glucose",
+        "Temperature=30",
+        "Temperature=37",
+        "pert_time_unit=min",
+        "data_source=WAYB",
+        "data_source=WAYB_rep1",
+        "data_source=WAYB_rep2",
+        "data_source=WAYC",
+        "instrument=CAA",
+        "instrument=CAB",
+        "instrument=CAC",
+        "instrument=O",
+        "instrument=QE1",
+        "instrument=QE2",
+        "instrument=WAH",
+        "log2(pert_time)"
+      ],
+      "condition_excludes_compound_identity": true,
+      "drug_feature_count": 2094,
+      "compound_identity_dimension": 39,
+      "drug_layout": [
+        "train-vocabulary compound one-hot",
+        "Morgan-2048",
+        "five train-standardized RDKit descriptors",
+        "structure_available",
+        "identity_seen_in_fit"
+      ],
+      "drug_structure_offset": 39,
+      "drug_seen_mask_index": 2093
+    }
+  },
+  "validation_scoring": {
+    "prediction_frozen_before_truth_scoring": true,
+    "posterior_calls": 0,
+    "metrics_sha256": "60e19de42444aa65901017d242b8635084354a7c1d80ea423ae29e133f1892ee",
+    "provisional_total_100": 49.79223904635505
+  }
+}

@@ -1,0 +1,386 @@
+{
+  "schema_version": "1.0",
+  "method_id": "b10-a2-film-cross-mlp",
+  "variant_id": "dual-encoder-drug-conditioned-film-cross",
+  "deployable": true,
+  "diagnostic_only": false,
+  "generated_at": "2026-08-16T17:01:22.669838+08:00",
+  "data_contract": {
+    "metadata_sha256": "9414f22d71e925a3b85544b49fde252613c87808d34738a84785003adb8131ef",
+    "proteome_sha256": "a15d9a40a6ad4e8e84a4ce4ed08644fce78780d31ace5561928517c4a5fa7ccb",
+    "sample_axis_sha256": "a2bde66162df191b5d7dc6c42773a564a67420802aa643cd90a0a2ad55a94a7d",
+    "protein_axis_sha256": "f112e7fffae4d3158ec9985a6c9cfa25e1a7dd40f847092561ea023bc1d8a45f",
+    "train_rows": 5920,
+    "fit_rows_excluding_qc": 5829,
+    "validation_target_rows": 2806,
+    "validation_treatment_rows_for_early_stopping": 2806,
+    "retained_proteins": 4422,
+    "missing_rate_threshold": 0.8,
+    "test_proteome_loaded": false,
+    "official_validation_used_for_gradient_training": false,
+    "official_validation_used_for_early_stopping": true,
+    "protein_filter_fit_scope": "split_final=train only",
+    "base_profile_fit_scope": "non-QC split_final=train rows only",
+    "metadata_categories_and_numeric_statistics_fit_scope": "non-QC split_final=train rows only",
+    "descriptor_statistics_fit_scope": "non-QC split_final=train rows only",
+    "validation_or_test_truth_used_for_features": false
+  },
+  "input_hashes": {
+    "config_sha256": "a76a5400482c5781632e438e87a350c70a843e52bc7f631166dada8ac7375105",
+    "structure_npz_sha256": "d2cb4f5398182642209482624bec6c7f2da0fec9cd8425a26ac9638712f484df",
+    "structure_contract_sha256": "cbf5f6a1b5feb0202d91b5e58c123bee89354b6e86b1e534b55b3a600fa8a327",
+    "structure_manifest_sha256": "29e02abff4fd50ecf5376e7cdc1d3d7ee896063285df0064368dbea6f3ed4332",
+    "score_config_sha256": "932a8791d14f813f5bca47b1935f04f7356b66984020f220abbed1a8ac324da2"
+  },
+  "output_hashes": {
+    "prediction_sha256": "9c63c64a92f11310b493f9d4e414044f461c47efef96dd8799536990c8aaed5a",
+    "model_sha256": "7f567e9b7d959459e56123ed464eaa101498ae52654bec42b4e981d49da0faf0",
+    "history_sha256": "cde7f863d494eb1574a29ec5545816a07ce34fbc65b09c5ef881cc5c629ff0da",
+    "metrics_sha256": "9c8fe49ee5b3d9b19b65ba282b8337fa43fcf5ad139085a77eb3aeb3ab672f8f"
+  },
+  "wandb": {
+    "mode": "online",
+    "project": "goai-2026-virtual-yeast-perturbation",
+    "entity": "oliver0128",
+    "run_id": "n90vkd2d",
+    "run_name": "20260816-1658_b10-a2-film-cross-mlp-seed42",
+    "run_path": "oliver0128/goai-2026-virtual-yeast-perturbation/n90vkd2d",
+    "run_url": "https://wandb.ai/oliver0128/goai-2026-virtual-yeast-perturbation/runs/n90vkd2d",
+    "cloud_synced": true,
+    "model_artifact_uploaded": false,
+    "prediction_uploaded": false
+  },
+  "runtime": {
+    "python": "3.13.14",
+    "torch": "2.13.0+cu132",
+    "device": "cuda",
+    "device_name": "NVIDIA H100 PCIe",
+    "cuda_visible_devices": "externally bound CUDA_VISIBLE_DEVICES=2; runtime cuda:0 maps to physical GPU 2",
+    "peak_gpu_memory_allocated_bytes": 175873024,
+    "elapsed_seconds": 172.4571173582226,
+    "omp_num_threads": 2,
+    "mkl_num_threads": 2,
+    "distributed_training": false
+  },
+  "method_details": {
+    "architecture": "condition encoder 128 + drug encoder 128 + drug-conditioned FiLM(c) + residual fusion 256 + single 256-to-protein residual head",
+    "controlled_difference": "c_film=(1+gamma(d))*c+beta(d); gamma/beta output layers zero-initialized",
+    "condition_encoder_input": "all encoded metadata except compound one-hot",
+    "drug_encoder_input": "compound one-hot plus Morgan-2048 plus descriptors and masks",
+    "parameter_count": 2007366,
+    "best_epoch_from_official_validation": 77,
+    "maximum_epochs": 1000,
+    "early_stopping_patience": 50,
+    "seed": 42,
+    "loss": "elementwise mask-aware MSE over observed log2 targets",
+    "base_profile": "mean over non-QC split_final=train rows after train-only protein filter",
+    "identity_dropout": {
+      "probability": 0.25,
+      "scope": "training only; compound one-hot and identity_seen_in_fit mask; public structure retained"
+    },
+    "film_prediction_audit": {
+      "gamma_abs_mean": 0.22193500032105448,
+      "gamma_abs_max": 3.407806634902954,
+      "beta_abs_mean": 0.06187676737670463,
+      "beta_abs_max": 0.39782679080963135,
+      "condition_film_abs_max": 2.964967727661133
+    },
+    "metadata_feature_manifest": {
+      "feature_count": 60,
+      "feature_names": [
+        "Strains=BAH",
+        "Strains=CEK",
+        "Strains=CGD",
+        "Strains=DHY210",
+        "perturbation_no_concentration=(1R, 2S, 5R) - (-) - Menthol",
+        "perturbation_no_concentration=1-10 Phenanthroline monohydrate",
+        "perturbation_no_concentration=4-Hydroxytamoxifen",
+        "perturbation_no_concentration=Amiodarone hydrochloride",
+        "perturbation_no_concentration=Anisomycin",
+        "perturbation_no_concentration=Artemisinin",
+        "perturbation_no_concentration=Brefeldin A",
+        "perturbation_no_concentration=CHX",
+        "perturbation_no_concentration=Cisplatin",
+        "perturbation_no_concentration=Clomiphene citrate",
+        "perturbation_no_concentration=Clotrimazole",
+        "perturbation_no_concentration=Cyclopiazonic acid",
+        "perturbation_no_concentration=DMSO",
+        "perturbation_no_concentration=Desipramine hydrochloride",
+        "perturbation_no_concentration=Dyclonine hydrochloride",
+        "perturbation_no_concentration=EDTA",
+        "perturbation_no_concentration=Emodin",
+        "perturbation_no_concentration=Geldanamycin",
+        "perturbation_no_concentration=Haloperidol",
+        "perturbation_no_concentration=Harmine hydrochloride",
+        "perturbation_no_concentration=Hoechst 33258",
+        "perturbation_no_concentration=LY 294002 hydrochloride",
+        "perturbation_no_concentration=NaCl",
+        "perturbation_no_concentration=Nigericin",
+        "perturbation_no_concentration=Nocodazole",
+        "perturbation_no_concentration=Nystatin dihydrate",
+        "perturbation_no_concentration=Oligomycin",
+        "perturbation_no_concentration=Parthenolide",
+        "perturbation_no_concentration=Rapamycin",
+        "perturbation_no_concentration=SDS",
+        "perturbation_no_concentration=Sorbitol",
+        "perturbation_no_concentration=Staurosporine",
+        "perturbation_no_concentration=Trichostatin A",
+        "perturbation_no_concentration=Trifluoperazine dihydrochloride",
+        "perturbation_no_concentration=Tunicamycin",
+        "perturbation_no_concentration=U-73122",
+        "perturbation_no_concentration=Valinomycin",
+        "perturbation_no_concentration=Water",
+        "perturbation_no_concentration=Wortmannin",
+        "Medium=YNB+CSM+2% galactose",
+        "Medium=YNB+CSM+2% glucose",
+        "Temperature=30",
+        "Temperature=37",
+        "pert_time_unit=min",
+        "data_source=WAYB",
+        "data_source=WAYB_rep1",
+        "data_source=WAYB_rep2",
+        "data_source=WAYC",
+        "instrument=CAA",
+        "instrument=CAB",
+        "instrument=CAC",
+        "instrument=O",
+        "instrument=QE1",
+        "instrument=QE2",
+        "instrument=WAH",
+        "log2(pert_time)"
+      ],
+      "feature_slices": {
+        "Strains": [
+          0,
+          4
+        ],
+        "perturbation_no_concentration": [
+          4,
+          43
+        ],
+        "Medium": [
+          43,
+          45
+        ],
+        "Temperature": [
+          45,
+          47
+        ],
+        "pert_time_unit": [
+          47,
+          48
+        ],
+        "data_source": [
+          48,
+          52
+        ],
+        "instrument": [
+          52,
+          59
+        ]
+      },
+      "categorical": {
+        "Strains": {
+          "categories": [
+            "BAH",
+            "CEK",
+            "CGD",
+            "DHY210"
+          ],
+          "target_unseen_categories": [
+            "BAI"
+          ],
+          "target_rows_with_unseen": 1602
+        },
+        "perturbation_no_concentration": {
+          "categories": [
+            "(1R, 2S, 5R) - (-) - Menthol",
+            "1-10 Phenanthroline monohydrate",
+            "4-Hydroxytamoxifen",
+            "Amiodarone hydrochloride",
+            "Anisomycin",
+            "Artemisinin",
+            "Brefeldin A",
+            "CHX",
+            "Cisplatin",
+            "Clomiphene citrate",
+            "Clotrimazole",
+            "Cyclopiazonic acid",
+            "DMSO",
+            "Desipramine hydrochloride",
+            "Dyclonine hydrochloride",
+            "EDTA",
+            "Emodin",
+            "Geldanamycin",
+            "Haloperidol",
+            "Harmine hydrochloride",
+            "Hoechst 33258",
+            "LY 294002 hydrochloride",
+            "NaCl",
+            "Nigericin",
+            "Nocodazole",
+            "Nystatin dihydrate",
+            "Oligomycin",
+            "Parthenolide",
+            "Rapamycin",
+            "SDS",
+            "Sorbitol",
+            "Staurosporine",
+            "Trichostatin A",
+            "Trifluoperazine dihydrochloride",
+            "Tunicamycin",
+            "U-73122",
+            "Valinomycin",
+            "Water",
+            "Wortmannin"
+          ],
+          "target_unseen_categories": [
+            "Amphotericin B",
+            "FCCP",
+            "Hydroxyurea",
+            "Pentamidine isethionate",
+            "Raloxifene hydrochloride",
+            "Sulfometuron methyl"
+          ],
+          "target_rows_with_unseen": 1334
+        },
+        "Medium": {
+          "categories": [
+            "YNB+CSM+2% galactose",
+            "YNB+CSM+2% glucose"
+          ],
+          "target_unseen_categories": [],
+          "target_rows_with_unseen": 0
+        },
+        "Temperature": {
+          "categories": [
+            "30",
+            "37"
+          ],
+          "target_unseen_categories": [],
+          "target_rows_with_unseen": 0
+        },
+        "pert_time_unit": {
+          "categories": [
+            "min"
+          ],
+          "target_unseen_categories": [],
+          "target_rows_with_unseen": 0
+        },
+        "data_source": {
+          "categories": [
+            "WAYB",
+            "WAYB_rep1",
+            "WAYB_rep2",
+            "WAYC"
+          ],
+          "target_unseen_categories": [],
+          "target_rows_with_unseen": 0
+        },
+        "instrument": {
+          "categories": [
+            "CAA",
+            "CAB",
+            "CAC",
+            "O",
+            "QE1",
+            "QE2",
+            "WAH"
+          ],
+          "target_unseen_categories": [],
+          "target_rows_with_unseen": 0
+        }
+      },
+      "numeric": {
+        "pert_time": {
+          "transform": "log2_zscore",
+          "mean": 6.004819685194862,
+          "scale": 1.3129122905292678
+        }
+      },
+      "unseen_policy": "all-zero block for categories absent from split_final=train"
+    },
+    "structure_feature_manifest": {
+      "compound_column": "perturbation_no_concentration",
+      "artifact_entity_count": 56,
+      "fingerprint_dimension": 2048,
+      "descriptor_names": [
+        "mol_wt",
+        "mol_logp",
+        "tpsa",
+        "hbd",
+        "hba"
+      ],
+      "descriptor_mean": [
+        334.9511501517094,
+        1.499689863667181,
+        85.72359807725672,
+        2.0171556013038257,
+        4.683822267970492
+      ],
+      "descriptor_scale": [
+        246.21283066598065,
+        3.1724557853100896,
+        74.3091616871715,
+        2.462492159220066,
+        4.108293133662718
+      ],
+      "descriptor_scaling_fit_scope": "fit rows only",
+      "fit_rows": 5829,
+      "fit_structure_coverage_rows": 5829,
+      "fit_unseen_identity_rows": 0,
+      "target_rows": 2806,
+      "target_structure_coverage_rows": 2806,
+      "target_unseen_identity_rows": 1334,
+      "mask_columns": [
+        "structure_available",
+        "identity_seen_in_fit"
+      ],
+      "missing_structure_policy": "zero fingerprint and descriptor plus structure_available=0",
+      "unseen_identity_policy": "public structure retained plus identity_seen_in_fit=0"
+    },
+    "dual_input_manifest": {
+      "condition_feature_count": 21,
+      "condition_feature_names": [
+        "Strains=BAH",
+        "Strains=CEK",
+        "Strains=CGD",
+        "Strains=DHY210",
+        "Medium=YNB+CSM+2% galactose",
+        "Medium=YNB+CSM+2% glucose",
+        "Temperature=30",
+        "Temperature=37",
+        "pert_time_unit=min",
+        "data_source=WAYB",
+        "data_source=WAYB_rep1",
+        "data_source=WAYB_rep2",
+        "data_source=WAYC",
+        "instrument=CAA",
+        "instrument=CAB",
+        "instrument=CAC",
+        "instrument=O",
+        "instrument=QE1",
+        "instrument=QE2",
+        "instrument=WAH",
+        "log2(pert_time)"
+      ],
+      "condition_excludes_compound_identity": true,
+      "drug_feature_count": 2094,
+      "compound_identity_dimension": 39,
+      "drug_layout": [
+        "train-vocabulary compound one-hot",
+        "Morgan-2048",
+        "five train-standardized RDKit descriptors",
+        "structure_available",
+        "identity_seen_in_fit"
+      ],
+      "drug_structure_offset": 39,
+      "drug_seen_mask_index": 2093
+    }
+  },
+  "validation_scoring": {
+    "prediction_frozen_before_truth_scoring": true,
+    "metrics_sha256": "9c8fe49ee5b3d9b19b65ba282b8337fa43fcf5ad139085a77eb3aeb3ab672f8f",
+    "provisional_total_100": 49.685790381432305
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "method_id": "b10-a2-film-cross-mlp",
+  "variant_id": "dual-encoder-drug-conditioned-film-cross",
+  "deployable": true,
+  "diagnostic_only": false,
+  "missing_rate_threshold": 0.8,
+  "categorical_columns": [
+    "Strains",
+    "perturbation_no_concentration",
+    "Medium",
+    "Temperature",
+    "pert_time_unit",
+    "data_source",
+    "instrument"
+  ],
+  "compound_column": "perturbation_no_concentration",
+  "log2_numeric_columns": [
+    "pert_time"
+  ],
+  "encoder_hidden_dim": 256,
+  "latent_dim": 128,
+  "fusion_dim": 256,
+  "fusion_residual_blocks": 1,
+  "dropout": 0.2,
+  "compound_identity_dropout": 0.25,
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "batch_size": 128,
+  "evaluation_batch_size": 512,
+  "max_epochs": 1000,
+  "early_stopping_patience": 50,
+  "early_stopping_min_delta": 0.0001,
+  "seed": 42,
+  "wandb": {
+    "project": "goai-2026-virtual-yeast-perturbation",
+    "entity": "oliver0128",
+    "mode": "online",
+    "job_type": "b10-film-cross-validation",
+    "tags": [
+      "b10",
+      "a2",
+      "film-cross",
+      "dual-encoder",
+      "morgan-2048",
+      "official-validation-early-stopping"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+# Reference pip environment used for the frozen 2026-08-16 run.
+# Python version: 3.13.14
+# The exact PyTorch build requires a package index that provides CUDA 13.2 wheels.
+
+numpy==2.4.6
+pandas==3.0.3
+torch==2.13.0+cu132
+triton==3.7.1
+rdkit==2026.3.5
+scipy==1.18.0
+scikit-learn==1.9.0
+joblib==1.5.3
+threadpoolctl==3.6.0
+wandb==0.28.1
+pytest==9.1.1

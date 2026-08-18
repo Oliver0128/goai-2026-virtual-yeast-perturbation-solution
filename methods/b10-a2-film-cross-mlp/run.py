@@ -1,0 +1,10 @@
+import sys
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+sys.path.insert(0, str(HERE.parents[0] / "_shared"))
+
+from runner import main
+
+raise SystemExit(main())

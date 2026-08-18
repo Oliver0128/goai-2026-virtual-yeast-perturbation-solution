@@ -1,0 +1,24 @@
+competition_name,chembl_id,mechanism_of_action,action_type,target_chembl_id,target_name,direct_interaction,mechanism_comment,source
+Amiodarone hydrochloride,CHEMBL1083993,HERG blocker,BLOCKER,CHEMBL240,,1,,ChEMBL curated mechanism; organism may be non-yeast
+Trifluoperazine dihydrochloride,CHEMBL1257040,Serotonin 2a (5-HT2a) receptor antagonist,ANTAGONIST,CHEMBL224,,1,,ChEMBL curated mechanism; organism may be non-yeast
+Trifluoperazine dihydrochloride,CHEMBL1257040,Serotonin 2c (5-HT2c) receptor antagonist,ANTAGONIST,CHEMBL225,,1,,ChEMBL curated mechanism; organism may be non-yeast
+Raloxifene hydrochloride,CHEMBL1116,Estrogen receptor beta modulator,MODULATOR,CHEMBL242,,1,Mixed agonist/antagonist,ChEMBL curated mechanism; organism may be non-yeast
+Desipramine hydrochloride,CHEMBL1696,Norepinephrine transporter inhibitor,INHIBITOR,CHEMBL222,,1,"Mechanism_for_indication: depression. Higher activity against the norepinephrine transporter, weaker binding against the serotonin transporter. Reuptake inhibitor.",ChEMBL curated mechanism; organism may be non-yeast
+Clotrimazole,CHEMBL104,Cytochrome P450 51 inhibitor,INHIBITOR,CHEMBL1780,,1,"Has also been implicated as a therapy for sickle cell anemia, by inhibiting the gardos channel, causing dehydration of the cells (PMID: 8636434)",ChEMBL curated mechanism; organism may be non-yeast
+Fluconazole,CHEMBL106,Cytochrome P450 51 inhibitor,INHIBITOR,CHEMBL1780,,1,,ChEMBL curated mechanism; organism may be non-yeast
+Dyclonine hydrochloride,CHEMBL1200478,Sodium channel alpha subunit blocker,BLOCKER,CHEMBL2331043,,1,,ChEMBL curated mechanism; organism may be non-yeast
+Trifluoperazine dihydrochloride,CHEMBL1257040,D2-like dopamine receptor antagonist,ANTAGONIST,CHEMBL2331075,,1,,ChEMBL curated mechanism; organism may be non-yeast
+CHX,CHEMBL123292,80S Ribosome inhibitor,INHIBITOR,CHEMBL3987582,,1,,ChEMBL curated mechanism; organism may be non-yeast
+Rapamycin,CHEMBL413,FK506-binding protein 1A inhibitor,INHIBITOR,CHEMBL1902,,1,,ChEMBL curated mechanism; organism may be non-yeast
+Clomiphene citrate,CHEMBL3185958,Estrogen receptor alpha modulator,MODULATOR,CHEMBL206,,1,,ChEMBL curated mechanism; organism may be non-yeast
+Hydroxyurea,CHEMBL467,Ribonucleoside-diphosphate reductase RR1 inhibitor,INHIBITOR,CHEMBL2095215,,1,,ChEMBL curated mechanism; organism may be non-yeast
+Amphotericin B,CHEMBL267345,Ergosterol sequestering agent,SEQUESTERING AGENT,CHEMBL2364028,,1,forms pore in membrane by binding ergosterol,ChEMBL curated mechanism; organism may be non-yeast
+Pentamidine isethionate,CHEMBL361506,DNA inhibitor,INHIBITOR,CHEMBL2366046,,1,,ChEMBL curated mechanism; organism may be non-yeast
+Pentamidine isethionate,CHEMBL361506,Kinetoplast DNA inhibitor,INHIBITOR,CHEMBL2366047,,1,"Binds DNA, concentrated in kinetoplast",ChEMBL curated mechanism; organism may be non-yeast
+Artemisinin,CHEMBL269671,Unknown,,,,1,Free radicals generated,ChEMBL curated mechanism; organism may be non-yeast
+Haloperidol,CHEMBL54,Serotonin 2a (5-HT2a) receptor antagonist,ANTAGONIST,CHEMBL224,,1,,ChEMBL curated mechanism; organism may be non-yeast
+Haloperidol,CHEMBL54,D2-like dopamine receptor inverse agonist,INVERSE AGONIST,CHEMBL2331075,,1,,ChEMBL curated mechanism; organism may be non-yeast
+DMSO,CHEMBL504,Unknown,,,,1,,ChEMBL curated mechanism; organism may be non-yeast
+4-Hydroxytamoxifen,CHEMBL489,Estrogen receptor modulator,MODULATOR,CHEMBL2093866,,1,Active metabolite of tamoxifen,ChEMBL curated mechanism; organism may be non-yeast
+4-Hydroxytamoxifen,CHEMBL489,Estrogen-related receptor gamma antagonist,ANTAGONIST,CHEMBL4245,,1,Active metabolite of tamoxifen,ChEMBL curated mechanism; organism may be non-yeast
+H2O2,CHEMBL71595,Unknown,,,,0,Unknown,ChEMBL curated mechanism; organism may be non-yeast

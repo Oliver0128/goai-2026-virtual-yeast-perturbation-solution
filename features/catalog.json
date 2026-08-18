@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-18T22:07:41.533425+08:00",
+  "policy": {
+    "organizer_raw_data": "competition-materials/raw-data; local only",
+    "public_raw_responses": "local-artifacts/references/external-knowledge/raw; local only",
+    "reproducible_contracts": "solution/features/<module>; code plus compact derived artifacts",
+    "validation_test_truth": "never used to build external entity features"
+  },
+  "modules": [
+    {
+      "module": "b16-e7-oof-residual",
+      "role": "derived feature module",
+      "size_bytes": 129771323,
+      "has_builder": true,
+      "has_test": true,
+      "has_manifest": true,
+      "has_summary": false,
+      "generated_data_files": [
+        "build.stdout.log",
+        "e7-oof-predictions.npz",
+        "folds/fold-0-history.json",
+        "folds/fold-0.pt",
+        "folds/fold-1-history.json",
+        "folds/fold-1.pt",
+        "folds/fold-2-history.json",
+        "folds/fold-2.pt",
+        "folds/fold-3-history.json",
+        "folds/fold-3.pt",
+        "folds/fold-4-history.json",
+        "folds/fold-4.pt",
+        "manifest.json"
+      ],
+      "raw_source_location": null,
+      "raw_source_location_exists": null,
+      "data_boundary": null
+    },
+    {
+      "module": "compound-knowledge",
+      "role": "ChEMBL mechanisms, activities, targets and pathways",
+      "size_bytes": 50302,
+      "has_builder": true,
+      "has_test": true,
+      "has_manifest": true,
+      "has_summary": false,
+      "generated_data_files": [
+        "compound-pathways.csv.gz",
+        "compound-protein-edges.csv.gz",
+        "contract.csv",
+        "manifest.json",
+        "mapping-candidates.csv",
+        "mechanisms.csv",
+        "targets.csv",
+        "yeast-activities.csv.gz"
+      ],
+      "raw_source_location": "local-artifacts/references/external-knowledge/raw/compound-knowledge",
+      "raw_source_location_exists": true,
+      "data_boundary": null
+    },
+    {
+      "module": "compound-structure",
+      "role": "exact compound identity, RDKit descriptors and Morgan fingerprints",
+      "size_bytes": 135060,
+      "has_builder": true,
+      "has_test": true,
+      "has_manifest": true,
+      "has_summary": false,
+      "generated_data_files": [
+        "contract.csv",
+        "fingerprints.npz",
+        "identifiers.csv",
+        "manifest.json",
+        "pubchem-properties.json"
+      ],
+      "raw_source_location": null,
+      "raw_source_location_exists": null,
+      "data_boundary": null
+    },
+    {
+      "module": "dose-audit",
+      "role": "competition dose availability and provenance audit",
+      "size_bytes": 32895,
+      "has_builder": true,
+      "has_test": true,
+      "has_manifest": true,
+      "has_summary": false,
+      "generated_data_files": [
+        "contract.csv",
+        "manifest.json",
+        "pert-id-collisions.csv",
+        "source-audit.csv"
+      ],
+      "raw_source_location": "local-artifacts/references/external-knowledge/raw/dose-provenance",
+      "raw_source_location_exists": true,
+      "data_boundary": null
+    },
+    {
+      "module": "external-knowledge-audit",
+      "role": "cross-module boundary and use-policy audit",
+      "size_bytes": 17107,
+      "has_builder": true,
+      "has_test": true,
+      "has_manifest": false,
+      "has_summary": true,
+      "generated_data_files": [
+        "summary.json",
+        "use-policy.csv"
+      ],
+      "raw_source_location": null,
+      "raw_source_location_exists": null,
+      "data_boundary": {
+        "validation_or_test_proteome_values_loaded": false,
+        "protein_axis_access": "header_only",
+        "released_metadata_used": true,
+        "external_public_entity_data_used": true
+      }
+    },
+    {
+      "module": "protein-identity",
+      "role": "protein identity, sequence, GO evidence and physical PPI",
+      "size_bytes": 7023627,
+      "has_builder": true,
+      "has_test": true,
+      "has_manifest": true,
+      "has_summary": false,
+      "generated_data_files": [
+        "contract.csv",
+        "go-annotations-evidence.csv.gz",
+        "go-annotations.csv.gz",
+        "manifest.json",
+        "ppi-physical-edges.tsv.gz",
+        "sequence-features.npz",
+        "sequences.fasta.gz",
+        "string-manifest.json"
+      ],
+      "raw_source_location": "local-artifacts/references/external-knowledge/raw/protein",
+      "raw_source_location_exists": true,
+      "data_boundary": {
+        "protein_values_loaded": false,
+        "protein_header_only": true,
+        "learned_statistics": false
+      }
+    },
+    {
+      "module": "strain-genome",
+      "role": "strain identity, population genomics and strain proteomes",
+      "size_bytes": 8187837,
+      "has_builder": true,
+      "has_test": true,
+      "has_manifest": true,
+      "has_summary": false,
+      "generated_data_files": [
+        "contract.csv",
+        "genomic-features.npz",
+        "identity-search-audit.csv",
+        "manifest.json",
+        "pairwise-distances.csv",
+        "phenotype-features-diagnostic.npz",
+        "population-distance-pca.npz",
+        "strain-proteome-features.npz",
+        "strain-proteome-summary.csv",
+        "strain-proteomes.fasta.gz"
+      ],
+      "raw_source_location": "local-artifacts/references/external-knowledge/raw/strain",
+      "raw_source_location_exists": true,
+      "data_boundary": null
+    }
+  ]
+}

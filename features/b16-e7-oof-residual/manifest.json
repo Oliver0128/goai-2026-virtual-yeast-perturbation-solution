@@ -1,0 +1,1610 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "b16-e7-oof-residual-v1",
+  "generated_at": "2026-08-16T20:19:26.407588+08:00",
+  "artifact_file": "e7-oof-predictions.npz",
+  "artifact_sha256": "2d9af74a40d1a53d6811a759f9f5c6ca43ee3cb5272148aa03c9f66124004cb5",
+  "keys": {
+    "sample_ids": {
+      "dtype": "unicode",
+      "shape": [
+        5829
+      ]
+    },
+    "protein_names": {
+      "dtype": "unicode",
+      "shape": [
+        4422
+      ]
+    },
+    "predictions": {
+      "dtype": "float32",
+      "shape": [
+        5829,
+        4422
+      ],
+      "semantics": "one prediction per non-QC split_final=train row from a model that excluded that row's biological group"
+    },
+    "fold_ids": {
+      "dtype": "int16",
+      "shape": [
+        5829
+      ]
+    },
+    "observed_mask": {
+      "dtype": "bool",
+      "shape": [
+        5829,
+        4422
+      ]
+    }
+  },
+  "axes": {
+    "sample_axis_sha256": "5c659be79599499ac80bc0d2c8110ddbca60f4356064675a6ccc937e2c27d0ea",
+    "protein_axis_sha256": "f112e7fffae4d3158ec9985a6c9cfa25e1a7dd40f847092561ea023bc1d8a45f",
+    "sample_rows": 5829,
+    "proteins": 4422
+  },
+  "source": {
+    "metadata_sha256": "9414f22d71e925a3b85544b49fde252613c87808d34738a84785003adb8131ef",
+    "proteome_sha256": "a15d9a40a6ad4e8e84a4ce4ed08644fce78780d31ace5561928517c4a5fa7ccb",
+    "sample_axis_sha256": "a2bde66162df191b5d7dc6c42773a564a67420802aa643cd90a0a2ad55a94a7d",
+    "protein_axis_sha256": "f112e7fffae4d3158ec9985a6c9cfa25e1a7dd40f847092561ea023bc1d8a45f",
+    "e7_config_sha256": "a76a5400482c5781632e438e87a350c70a843e52bc7f631166dada8ac7375105",
+    "structure_npz_sha256": "d2cb4f5398182642209482624bec6c7f2da0fec9cd8425a26ac9638712f484df",
+    "structure_contract_sha256": "cbf5f6a1b5feb0202d91b5e58c123bee89354b6e86b1e534b55b3a600fa8a327",
+    "structure_manifest_sha256": "29e02abff4fd50ecf5376e7cdc1d3d7ee896063285df0064368dbea6f3ed4332",
+    "truth_reconstruction": "load only WAYB_WAYC_proteome_raw_train_val.csv, apply log2 and the manifest protein axis, then select sample_ids; missingness is also materialized as observed_mask"
+  },
+  "fold_contract": {
+    "algorithm": "sklearn.model_selection.GroupKFold",
+    "n_splits": 5,
+    "shuffle": true,
+    "random_state": 42,
+    "group_columns": [
+      "Strains",
+      "perturbation_no_concentration",
+      "Medium",
+      "Temperature",
+      "pert_time",
+      "pert_time_unit"
+    ],
+    "group_semantics": "technical replicates sharing biological condition cannot cross folds",
+    "all_rows_covered_once": true,
+    "unique_biological_groups": 3529
+  },
+  "training_contract": {
+    "source_architecture": "E7 b10-a2-film-cross-mlp",
+    "seed": 42,
+    "max_epochs": 300,
+    "early_stopping_patience": 30,
+    "selection": "fold holdout masked MSE; both train and holdout are split_final=train",
+    "per_fold_metadata_categories_numeric_statistics_scope": "fold training rows only",
+    "per_fold_rdkit_descriptor_statistics_scope": "fold training rows only",
+    "per_fold_base_profile_scope": "fold training rows only",
+    "fixed_protein_axis_scope": "official split_final=train missing-rate filter shared with E7",
+    "official_validation_truth_loaded": false,
+    "test_truth_loaded": false,
+    "in_sample_prediction_used": false
+  },
+  "folds": [
+    {
+      "fold_id": 0,
+      "train_rows": 4659,
+      "holdout_rows": 1170,
+      "train_unique_biological_groups": 2823,
+      "holdout_unique_biological_groups": 706,
+      "biological_group_overlap": 0,
+      "best_epoch": 215,
+      "best_holdout_masked_mse": 0.09646154708569053,
+      "parameter_count": 2007366,
+      "checkpoint": "folds/fold-0.pt",
+      "checkpoint_sha256": "23c2fc284b3948c00f04bbf3549d127eb0a47386806d479384472292a42e8e7d",
+      "history": "folds/fold-0-history.json",
+      "history_sha256": "739a9eb9fd95ac041b581132b071bb8e03afd83136568ae74ded2152155f3c94",
+      "statistics_scope": "fold training rows only",
+      "base_profile_sha256": "fe9cc6cfc6777fe820b8d12c640915fb762b966afac15c83e9442f5e55266788",
+      "metadata_feature_manifest": {
+        "feature_count": 60,
+        "feature_names": [
+          "Strains=BAH",
+          "Strains=CEK",
+          "Strains=CGD",
+          "Strains=DHY210",
+          "perturbation_no_concentration=(1R, 2S, 5R) - (-) - Menthol",
+          "perturbation_no_concentration=1-10 Phenanthroline monohydrate",
+          "perturbation_no_concentration=4-Hydroxytamoxifen",
+          "perturbation_no_concentration=Amiodarone hydrochloride",
+          "perturbation_no_concentration=Anisomycin",
+          "perturbation_no_concentration=Artemisinin",
+          "perturbation_no_concentration=Brefeldin A",
+          "perturbation_no_concentration=CHX",
+          "perturbation_no_concentration=Cisplatin",
+          "perturbation_no_concentration=Clomiphene citrate",
+          "perturbation_no_concentration=Clotrimazole",
+          "perturbation_no_concentration=Cyclopiazonic acid",
+          "perturbation_no_concentration=DMSO",
+          "perturbation_no_concentration=Desipramine hydrochloride",
+          "perturbation_no_concentration=Dyclonine hydrochloride",
+          "perturbation_no_concentration=EDTA",
+          "perturbation_no_concentration=Emodin",
+          "perturbation_no_concentration=Geldanamycin",
+          "perturbation_no_concentration=Haloperidol",
+          "perturbation_no_concentration=Harmine hydrochloride",
+          "perturbation_no_concentration=Hoechst 33258",
+          "perturbation_no_concentration=LY 294002 hydrochloride",
+          "perturbation_no_concentration=NaCl",
+          "perturbation_no_concentration=Nigericin",
+          "perturbation_no_concentration=Nocodazole",
+          "perturbation_no_concentration=Nystatin dihydrate",
+          "perturbation_no_concentration=Oligomycin",
+          "perturbation_no_concentration=Parthenolide",
+          "perturbation_no_concentration=Rapamycin",
+          "perturbation_no_concentration=SDS",
+          "perturbation_no_concentration=Sorbitol",
+          "perturbation_no_concentration=Staurosporine",
+          "perturbation_no_concentration=Trichostatin A",
+          "perturbation_no_concentration=Trifluoperazine dihydrochloride",
+          "perturbation_no_concentration=Tunicamycin",
+          "perturbation_no_concentration=U-73122",
+          "perturbation_no_concentration=Valinomycin",
+          "perturbation_no_concentration=Water",
+          "perturbation_no_concentration=Wortmannin",
+          "Medium=YNB+CSM+2% galactose",
+          "Medium=YNB+CSM+2% glucose",
+          "Temperature=30",
+          "Temperature=37",
+          "pert_time_unit=min",
+          "data_source=WAYB",
+          "data_source=WAYB_rep1",
+          "data_source=WAYB_rep2",
+          "data_source=WAYC",
+          "instrument=CAA",
+          "instrument=CAB",
+          "instrument=CAC",
+          "instrument=O",
+          "instrument=QE1",
+          "instrument=QE2",
+          "instrument=WAH",
+          "log2(pert_time)"
+        ],
+        "feature_slices": {
+          "Strains": [
+            0,
+            4
+          ],
+          "perturbation_no_concentration": [
+            4,
+            43
+          ],
+          "Medium": [
+            43,
+            45
+          ],
+          "Temperature": [
+            45,
+            47
+          ],
+          "pert_time_unit": [
+            47,
+            48
+          ],
+          "data_source": [
+            48,
+            52
+          ],
+          "instrument": [
+            52,
+            59
+          ]
+        },
+        "categorical": {
+          "Strains": {
+            "categories": [
+              "BAH",
+              "CEK",
+              "CGD",
+              "DHY210"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "perturbation_no_concentration": {
+            "categories": [
+              "(1R, 2S, 5R) - (-) - Menthol",
+              "1-10 Phenanthroline monohydrate",
+              "4-Hydroxytamoxifen",
+              "Amiodarone hydrochloride",
+              "Anisomycin",
+              "Artemisinin",
+              "Brefeldin A",
+              "CHX",
+              "Cisplatin",
+              "Clomiphene citrate",
+              "Clotrimazole",
+              "Cyclopiazonic acid",
+              "DMSO",
+              "Desipramine hydrochloride",
+              "Dyclonine hydrochloride",
+              "EDTA",
+              "Emodin",
+              "Geldanamycin",
+              "Haloperidol",
+              "Harmine hydrochloride",
+              "Hoechst 33258",
+              "LY 294002 hydrochloride",
+              "NaCl",
+              "Nigericin",
+              "Nocodazole",
+              "Nystatin dihydrate",
+              "Oligomycin",
+              "Parthenolide",
+              "Rapamycin",
+              "SDS",
+              "Sorbitol",
+              "Staurosporine",
+              "Trichostatin A",
+              "Trifluoperazine dihydrochloride",
+              "Tunicamycin",
+              "U-73122",
+              "Valinomycin",
+              "Water",
+              "Wortmannin"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "Medium": {
+            "categories": [
+              "YNB+CSM+2% galactose",
+              "YNB+CSM+2% glucose"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "Temperature": {
+            "categories": [
+              "30",
+              "37"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "pert_time_unit": {
+            "categories": [
+              "min"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "data_source": {
+            "categories": [
+              "WAYB",
+              "WAYB_rep1",
+              "WAYB_rep2",
+              "WAYC"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "instrument": {
+            "categories": [
+              "CAA",
+              "CAB",
+              "CAC",
+              "O",
+              "QE1",
+              "QE2",
+              "WAH"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          }
+        },
+        "numeric": {
+          "pert_time": {
+            "transform": "log2_zscore",
+            "mean": 6.017001367889268,
+            "scale": 1.3241798502158912
+          }
+        },
+        "unseen_policy": "all-zero block for categories absent from split_final=train"
+      },
+      "structure_feature_manifest": {
+        "compound_column": "perturbation_no_concentration",
+        "artifact_entity_count": 56,
+        "fingerprint_dimension": 2048,
+        "descriptor_names": [
+          "mol_wt",
+          "mol_logp",
+          "tpsa",
+          "hbd",
+          "hba"
+        ],
+        "descriptor_mean": [
+          333.2544460161532,
+          1.446647661874028,
+          85.45922185157241,
+          2.0156685984116764,
+          4.672461901695643
+        ],
+        "descriptor_scale": [
+          248.13488336871464,
+          3.2125701548764964,
+          75.05049309940961,
+          2.48134729414162,
+          4.143647775074329
+        ],
+        "descriptor_scaling_fit_scope": "fit rows only",
+        "fit_rows": 4659,
+        "fit_structure_coverage_rows": 4659,
+        "fit_unseen_identity_rows": 0,
+        "target_rows": 1170,
+        "target_structure_coverage_rows": 1170,
+        "target_unseen_identity_rows": 0,
+        "mask_columns": [
+          "structure_available",
+          "identity_seen_in_fit"
+        ],
+        "missing_structure_policy": "zero fingerprint and descriptor plus structure_available=0",
+        "unseen_identity_policy": "public structure retained plus identity_seen_in_fit=0"
+      },
+      "dual_input_manifest": {
+        "condition_feature_count": 21,
+        "condition_feature_names": [
+          "Strains=BAH",
+          "Strains=CEK",
+          "Strains=CGD",
+          "Strains=DHY210",
+          "Medium=YNB+CSM+2% galactose",
+          "Medium=YNB+CSM+2% glucose",
+          "Temperature=30",
+          "Temperature=37",
+          "pert_time_unit=min",
+          "data_source=WAYB",
+          "data_source=WAYB_rep1",
+          "data_source=WAYB_rep2",
+          "data_source=WAYC",
+          "instrument=CAA",
+          "instrument=CAB",
+          "instrument=CAC",
+          "instrument=O",
+          "instrument=QE1",
+          "instrument=QE2",
+          "instrument=WAH",
+          "log2(pert_time)"
+        ],
+        "condition_excludes_compound_identity": true,
+        "drug_feature_count": 2094,
+        "compound_identity_dimension": 39,
+        "drug_layout": [
+          "train-vocabulary compound one-hot",
+          "Morgan-2048",
+          "five train-standardized RDKit descriptors",
+          "structure_available",
+          "identity_seen_in_fit"
+        ],
+        "drug_structure_offset": 39,
+        "drug_seen_mask_index": 2093
+      }
+    },
+    {
+      "fold_id": 1,
+      "train_rows": 4676,
+      "holdout_rows": 1153,
+      "train_unique_biological_groups": 2823,
+      "holdout_unique_biological_groups": 706,
+      "biological_group_overlap": 0,
+      "best_epoch": 177,
+      "best_holdout_masked_mse": 0.09457555522460813,
+      "parameter_count": 2007366,
+      "checkpoint": "folds/fold-1.pt",
+      "checkpoint_sha256": "1af30010d892afcfe26cb4fcbcb13819d51238a65a80c2b01f09b31d31604c0e",
+      "history": "folds/fold-1-history.json",
+      "history_sha256": "c909b996e7ab52b91609a5064d5c6dec7cb623e72b35a8e38d15d622f495c6fd",
+      "statistics_scope": "fold training rows only",
+      "base_profile_sha256": "4b607369c3024c45e465cb089d8664b60a83ed7b63bb6a31ba21702d25afde32",
+      "metadata_feature_manifest": {
+        "feature_count": 60,
+        "feature_names": [
+          "Strains=BAH",
+          "Strains=CEK",
+          "Strains=CGD",
+          "Strains=DHY210",
+          "perturbation_no_concentration=(1R, 2S, 5R) - (-) - Menthol",
+          "perturbation_no_concentration=1-10 Phenanthroline monohydrate",
+          "perturbation_no_concentration=4-Hydroxytamoxifen",
+          "perturbation_no_concentration=Amiodarone hydrochloride",
+          "perturbation_no_concentration=Anisomycin",
+          "perturbation_no_concentration=Artemisinin",
+          "perturbation_no_concentration=Brefeldin A",
+          "perturbation_no_concentration=CHX",
+          "perturbation_no_concentration=Cisplatin",
+          "perturbation_no_concentration=Clomiphene citrate",
+          "perturbation_no_concentration=Clotrimazole",
+          "perturbation_no_concentration=Cyclopiazonic acid",
+          "perturbation_no_concentration=DMSO",
+          "perturbation_no_concentration=Desipramine hydrochloride",
+          "perturbation_no_concentration=Dyclonine hydrochloride",
+          "perturbation_no_concentration=EDTA",
+          "perturbation_no_concentration=Emodin",
+          "perturbation_no_concentration=Geldanamycin",
+          "perturbation_no_concentration=Haloperidol",
+          "perturbation_no_concentration=Harmine hydrochloride",
+          "perturbation_no_concentration=Hoechst 33258",
+          "perturbation_no_concentration=LY 294002 hydrochloride",
+          "perturbation_no_concentration=NaCl",
+          "perturbation_no_concentration=Nigericin",
+          "perturbation_no_concentration=Nocodazole",
+          "perturbation_no_concentration=Nystatin dihydrate",
+          "perturbation_no_concentration=Oligomycin",
+          "perturbation_no_concentration=Parthenolide",
+          "perturbation_no_concentration=Rapamycin",
+          "perturbation_no_concentration=SDS",
+          "perturbation_no_concentration=Sorbitol",
+          "perturbation_no_concentration=Staurosporine",
+          "perturbation_no_concentration=Trichostatin A",
+          "perturbation_no_concentration=Trifluoperazine dihydrochloride",
+          "perturbation_no_concentration=Tunicamycin",
+          "perturbation_no_concentration=U-73122",
+          "perturbation_no_concentration=Valinomycin",
+          "perturbation_no_concentration=Water",
+          "perturbation_no_concentration=Wortmannin",
+          "Medium=YNB+CSM+2% galactose",
+          "Medium=YNB+CSM+2% glucose",
+          "Temperature=30",
+          "Temperature=37",
+          "pert_time_unit=min",
+          "data_source=WAYB",
+          "data_source=WAYB_rep1",
+          "data_source=WAYB_rep2",
+          "data_source=WAYC",
+          "instrument=CAA",
+          "instrument=CAB",
+          "instrument=CAC",
+          "instrument=O",
+          "instrument=QE1",
+          "instrument=QE2",
+          "instrument=WAH",
+          "log2(pert_time)"
+        ],
+        "feature_slices": {
+          "Strains": [
+            0,
+            4
+          ],
+          "perturbation_no_concentration": [
+            4,
+            43
+          ],
+          "Medium": [
+            43,
+            45
+          ],
+          "Temperature": [
+            45,
+            47
+          ],
+          "pert_time_unit": [
+            47,
+            48
+          ],
+          "data_source": [
+            48,
+            52
+          ],
+          "instrument": [
+            52,
+            59
+          ]
+        },
+        "categorical": {
+          "Strains": {
+            "categories": [
+              "BAH",
+              "CEK",
+              "CGD",
+              "DHY210"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "perturbation_no_concentration": {
+            "categories": [
+              "(1R, 2S, 5R) - (-) - Menthol",
+              "1-10 Phenanthroline monohydrate",
+              "4-Hydroxytamoxifen",
+              "Amiodarone hydrochloride",
+              "Anisomycin",
+              "Artemisinin",
+              "Brefeldin A",
+              "CHX",
+              "Cisplatin",
+              "Clomiphene citrate",
+              "Clotrimazole",
+              "Cyclopiazonic acid",
+              "DMSO",
+              "Desipramine hydrochloride",
+              "Dyclonine hydrochloride",
+              "EDTA",
+              "Emodin",
+              "Geldanamycin",
+              "Haloperidol",
+              "Harmine hydrochloride",
+              "Hoechst 33258",
+              "LY 294002 hydrochloride",
+              "NaCl",
+              "Nigericin",
+              "Nocodazole",
+              "Nystatin dihydrate",
+              "Oligomycin",
+              "Parthenolide",
+              "Rapamycin",
+              "SDS",
+              "Sorbitol",
+              "Staurosporine",
+              "Trichostatin A",
+              "Trifluoperazine dihydrochloride",
+              "Tunicamycin",
+              "U-73122",
+              "Valinomycin",
+              "Water",
+              "Wortmannin"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "Medium": {
+            "categories": [
+              "YNB+CSM+2% galactose",
+              "YNB+CSM+2% glucose"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "Temperature": {
+            "categories": [
+              "30",
+              "37"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "pert_time_unit": {
+            "categories": [
+              "min"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "data_source": {
+            "categories": [
+              "WAYB",
+              "WAYB_rep1",
+              "WAYB_rep2",
+              "WAYC"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "instrument": {
+            "categories": [
+              "CAA",
+              "CAB",
+              "CAC",
+              "O",
+              "QE1",
+              "QE2",
+              "WAH"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          }
+        },
+        "numeric": {
+          "pert_time": {
+            "transform": "log2_zscore",
+            "mean": 5.998996196134989,
+            "scale": 1.3146775004023499
+          }
+        },
+        "unseen_policy": "all-zero block for categories absent from split_final=train"
+      },
+      "structure_feature_manifest": {
+        "compound_column": "perturbation_no_concentration",
+        "artifact_entity_count": 56,
+        "fingerprint_dimension": 2048,
+        "descriptor_names": [
+          "mol_wt",
+          "mol_logp",
+          "tpsa",
+          "hbd",
+          "hba"
+        ],
+        "descriptor_mean": [
+          334.4651987061121,
+          1.5356170103941598,
+          85.14640180140708,
+          1.9895209580838322,
+          4.660393498716852
+        ],
+        "descriptor_scale": [
+          246.8277207120363,
+          3.125405500973074,
+          73.91780635175954,
+          2.440501854133943,
+          4.111645109699785
+        ],
+        "descriptor_scaling_fit_scope": "fit rows only",
+        "fit_rows": 4676,
+        "fit_structure_coverage_rows": 4676,
+        "fit_unseen_identity_rows": 0,
+        "target_rows": 1153,
+        "target_structure_coverage_rows": 1153,
+        "target_unseen_identity_rows": 0,
+        "mask_columns": [
+          "structure_available",
+          "identity_seen_in_fit"
+        ],
+        "missing_structure_policy": "zero fingerprint and descriptor plus structure_available=0",
+        "unseen_identity_policy": "public structure retained plus identity_seen_in_fit=0"
+      },
+      "dual_input_manifest": {
+        "condition_feature_count": 21,
+        "condition_feature_names": [
+          "Strains=BAH",
+          "Strains=CEK",
+          "Strains=CGD",
+          "Strains=DHY210",
+          "Medium=YNB+CSM+2% galactose",
+          "Medium=YNB+CSM+2% glucose",
+          "Temperature=30",
+          "Temperature=37",
+          "pert_time_unit=min",
+          "data_source=WAYB",
+          "data_source=WAYB_rep1",
+          "data_source=WAYB_rep2",
+          "data_source=WAYC",
+          "instrument=CAA",
+          "instrument=CAB",
+          "instrument=CAC",
+          "instrument=O",
+          "instrument=QE1",
+          "instrument=QE2",
+          "instrument=WAH",
+          "log2(pert_time)"
+        ],
+        "condition_excludes_compound_identity": true,
+        "drug_feature_count": 2094,
+        "compound_identity_dimension": 39,
+        "drug_layout": [
+          "train-vocabulary compound one-hot",
+          "Morgan-2048",
+          "five train-standardized RDKit descriptors",
+          "structure_available",
+          "identity_seen_in_fit"
+        ],
+        "drug_structure_offset": 39,
+        "drug_seen_mask_index": 2093
+      }
+    },
+    {
+      "fold_id": 2,
+      "train_rows": 4633,
+      "holdout_rows": 1196,
+      "train_unique_biological_groups": 2823,
+      "holdout_unique_biological_groups": 706,
+      "biological_group_overlap": 0,
+      "best_epoch": 186,
+      "best_holdout_masked_mse": 0.09143040811893488,
+      "parameter_count": 2007366,
+      "checkpoint": "folds/fold-2.pt",
+      "checkpoint_sha256": "3a5b24b742f099e0c69c1f3477af5533b57de460f0274b0d6c4ecfa670dc760f",
+      "history": "folds/fold-2-history.json",
+      "history_sha256": "d1f3e597f705b0e041031f49d63deb7ef7066b95ccc505adf49957b8c64dd426",
+      "statistics_scope": "fold training rows only",
+      "base_profile_sha256": "d0c8684116550db335d199e5ecb61133c0a6a64df0ff0a2be2dd42c47a3dc4ec",
+      "metadata_feature_manifest": {
+        "feature_count": 60,
+        "feature_names": [
+          "Strains=BAH",
+          "Strains=CEK",
+          "Strains=CGD",
+          "Strains=DHY210",
+          "perturbation_no_concentration=(1R, 2S, 5R) - (-) - Menthol",
+          "perturbation_no_concentration=1-10 Phenanthroline monohydrate",
+          "perturbation_no_concentration=4-Hydroxytamoxifen",
+          "perturbation_no_concentration=Amiodarone hydrochloride",
+          "perturbation_no_concentration=Anisomycin",
+          "perturbation_no_concentration=Artemisinin",
+          "perturbation_no_concentration=Brefeldin A",
+          "perturbation_no_concentration=CHX",
+          "perturbation_no_concentration=Cisplatin",
+          "perturbation_no_concentration=Clomiphene citrate",
+          "perturbation_no_concentration=Clotrimazole",
+          "perturbation_no_concentration=Cyclopiazonic acid",
+          "perturbation_no_concentration=DMSO",
+          "perturbation_no_concentration=Desipramine hydrochloride",
+          "perturbation_no_concentration=Dyclonine hydrochloride",
+          "perturbation_no_concentration=EDTA",
+          "perturbation_no_concentration=Emodin",
+          "perturbation_no_concentration=Geldanamycin",
+          "perturbation_no_concentration=Haloperidol",
+          "perturbation_no_concentration=Harmine hydrochloride",
+          "perturbation_no_concentration=Hoechst 33258",
+          "perturbation_no_concentration=LY 294002 hydrochloride",
+          "perturbation_no_concentration=NaCl",
+          "perturbation_no_concentration=Nigericin",
+          "perturbation_no_concentration=Nocodazole",
+          "perturbation_no_concentration=Nystatin dihydrate",
+          "perturbation_no_concentration=Oligomycin",
+          "perturbation_no_concentration=Parthenolide",
+          "perturbation_no_concentration=Rapamycin",
+          "perturbation_no_concentration=SDS",
+          "perturbation_no_concentration=Sorbitol",
+          "perturbation_no_concentration=Staurosporine",
+          "perturbation_no_concentration=Trichostatin A",
+          "perturbation_no_concentration=Trifluoperazine dihydrochloride",
+          "perturbation_no_concentration=Tunicamycin",
+          "perturbation_no_concentration=U-73122",
+          "perturbation_no_concentration=Valinomycin",
+          "perturbation_no_concentration=Water",
+          "perturbation_no_concentration=Wortmannin",
+          "Medium=YNB+CSM+2% galactose",
+          "Medium=YNB+CSM+2% glucose",
+          "Temperature=30",
+          "Temperature=37",
+          "pert_time_unit=min",
+          "data_source=WAYB",
+          "data_source=WAYB_rep1",
+          "data_source=WAYB_rep2",
+          "data_source=WAYC",
+          "instrument=CAA",
+          "instrument=CAB",
+          "instrument=CAC",
+          "instrument=O",
+          "instrument=QE1",
+          "instrument=QE2",
+          "instrument=WAH",
+          "log2(pert_time)"
+        ],
+        "feature_slices": {
+          "Strains": [
+            0,
+            4
+          ],
+          "perturbation_no_concentration": [
+            4,
+            43
+          ],
+          "Medium": [
+            43,
+            45
+          ],
+          "Temperature": [
+            45,
+            47
+          ],
+          "pert_time_unit": [
+            47,
+            48
+          ],
+          "data_source": [
+            48,
+            52
+          ],
+          "instrument": [
+            52,
+            59
+          ]
+        },
+        "categorical": {
+          "Strains": {
+            "categories": [
+              "BAH",
+              "CEK",
+              "CGD",
+              "DHY210"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "perturbation_no_concentration": {
+            "categories": [
+              "(1R, 2S, 5R) - (-) - Menthol",
+              "1-10 Phenanthroline monohydrate",
+              "4-Hydroxytamoxifen",
+              "Amiodarone hydrochloride",
+              "Anisomycin",
+              "Artemisinin",
+              "Brefeldin A",
+              "CHX",
+              "Cisplatin",
+              "Clomiphene citrate",
+              "Clotrimazole",
+              "Cyclopiazonic acid",
+              "DMSO",
+              "Desipramine hydrochloride",
+              "Dyclonine hydrochloride",
+              "EDTA",
+              "Emodin",
+              "Geldanamycin",
+              "Haloperidol",
+              "Harmine hydrochloride",
+              "Hoechst 33258",
+              "LY 294002 hydrochloride",
+              "NaCl",
+              "Nigericin",
+              "Nocodazole",
+              "Nystatin dihydrate",
+              "Oligomycin",
+              "Parthenolide",
+              "Rapamycin",
+              "SDS",
+              "Sorbitol",
+              "Staurosporine",
+              "Trichostatin A",
+              "Trifluoperazine dihydrochloride",
+              "Tunicamycin",
+              "U-73122",
+              "Valinomycin",
+              "Water",
+              "Wortmannin"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "Medium": {
+            "categories": [
+              "YNB+CSM+2% galactose",
+              "YNB+CSM+2% glucose"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "Temperature": {
+            "categories": [
+              "30",
+              "37"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "pert_time_unit": {
+            "categories": [
+              "min"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "data_source": {
+            "categories": [
+              "WAYB",
+              "WAYB_rep1",
+              "WAYB_rep2",
+              "WAYC"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "instrument": {
+            "categories": [
+              "CAA",
+              "CAB",
+              "CAC",
+              "O",
+              "QE1",
+              "QE2",
+              "WAH"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          }
+        },
+        "numeric": {
+          "pert_time": {
+            "transform": "log2_zscore",
+            "mean": 6.024774572092179,
+            "scale": 1.3100268105559139
+          }
+        },
+        "unseen_policy": "all-zero block for categories absent from split_final=train"
+      },
+      "structure_feature_manifest": {
+        "compound_column": "perturbation_no_concentration",
+        "artifact_entity_count": 56,
+        "fingerprint_dimension": 2048,
+        "descriptor_names": [
+          "mol_wt",
+          "mol_logp",
+          "tpsa",
+          "hbd",
+          "hba"
+        ],
+        "descriptor_mean": [
+          339.99552544162157,
+          1.5258174367696682,
+          86.8251552849384,
+          2.0444636304770127,
+          4.747895532052666
+        ],
+        "descriptor_scale": [
+          245.30218141633804,
+          3.19352988874075,
+          74.44473340287017,
+          2.4489980195647805,
+          4.094226401873089
+        ],
+        "descriptor_scaling_fit_scope": "fit rows only",
+        "fit_rows": 4633,
+        "fit_structure_coverage_rows": 4633,
+        "fit_unseen_identity_rows": 0,
+        "target_rows": 1196,
+        "target_structure_coverage_rows": 1196,
+        "target_unseen_identity_rows": 0,
+        "mask_columns": [
+          "structure_available",
+          "identity_seen_in_fit"
+        ],
+        "missing_structure_policy": "zero fingerprint and descriptor plus structure_available=0",
+        "unseen_identity_policy": "public structure retained plus identity_seen_in_fit=0"
+      },
+      "dual_input_manifest": {
+        "condition_feature_count": 21,
+        "condition_feature_names": [
+          "Strains=BAH",
+          "Strains=CEK",
+          "Strains=CGD",
+          "Strains=DHY210",
+          "Medium=YNB+CSM+2% galactose",
+          "Medium=YNB+CSM+2% glucose",
+          "Temperature=30",
+          "Temperature=37",
+          "pert_time_unit=min",
+          "data_source=WAYB",
+          "data_source=WAYB_rep1",
+          "data_source=WAYB_rep2",
+          "data_source=WAYC",
+          "instrument=CAA",
+          "instrument=CAB",
+          "instrument=CAC",
+          "instrument=O",
+          "instrument=QE1",
+          "instrument=QE2",
+          "instrument=WAH",
+          "log2(pert_time)"
+        ],
+        "condition_excludes_compound_identity": true,
+        "drug_feature_count": 2094,
+        "compound_identity_dimension": 39,
+        "drug_layout": [
+          "train-vocabulary compound one-hot",
+          "Morgan-2048",
+          "five train-standardized RDKit descriptors",
+          "structure_available",
+          "identity_seen_in_fit"
+        ],
+        "drug_structure_offset": 39,
+        "drug_seen_mask_index": 2093
+      }
+    },
+    {
+      "fold_id": 3,
+      "train_rows": 4673,
+      "holdout_rows": 1156,
+      "train_unique_biological_groups": 2823,
+      "holdout_unique_biological_groups": 706,
+      "biological_group_overlap": 0,
+      "best_epoch": 254,
+      "best_holdout_masked_mse": 0.09604374202345699,
+      "parameter_count": 2007366,
+      "checkpoint": "folds/fold-3.pt",
+      "checkpoint_sha256": "5385e31d0dca39ac3bbaff95bd7c7c4b2cc2c1d7ef4b47d93e977cdb37586ad0",
+      "history": "folds/fold-3-history.json",
+      "history_sha256": "86820fb58a29f2b07a6ae1f7c9677e2c3d0043111167c4280ac9cdd2b37f2ce9",
+      "statistics_scope": "fold training rows only",
+      "base_profile_sha256": "9781e785ed553f0835aad88e184fc027fc2bb0ff7be79c71b66d2012500ea7ed",
+      "metadata_feature_manifest": {
+        "feature_count": 60,
+        "feature_names": [
+          "Strains=BAH",
+          "Strains=CEK",
+          "Strains=CGD",
+          "Strains=DHY210",
+          "perturbation_no_concentration=(1R, 2S, 5R) - (-) - Menthol",
+          "perturbation_no_concentration=1-10 Phenanthroline monohydrate",
+          "perturbation_no_concentration=4-Hydroxytamoxifen",
+          "perturbation_no_concentration=Amiodarone hydrochloride",
+          "perturbation_no_concentration=Anisomycin",
+          "perturbation_no_concentration=Artemisinin",
+          "perturbation_no_concentration=Brefeldin A",
+          "perturbation_no_concentration=CHX",
+          "perturbation_no_concentration=Cisplatin",
+          "perturbation_no_concentration=Clomiphene citrate",
+          "perturbation_no_concentration=Clotrimazole",
+          "perturbation_no_concentration=Cyclopiazonic acid",
+          "perturbation_no_concentration=DMSO",
+          "perturbation_no_concentration=Desipramine hydrochloride",
+          "perturbation_no_concentration=Dyclonine hydrochloride",
+          "perturbation_no_concentration=EDTA",
+          "perturbation_no_concentration=Emodin",
+          "perturbation_no_concentration=Geldanamycin",
+          "perturbation_no_concentration=Haloperidol",
+          "perturbation_no_concentration=Harmine hydrochloride",
+          "perturbation_no_concentration=Hoechst 33258",
+          "perturbation_no_concentration=LY 294002 hydrochloride",
+          "perturbation_no_concentration=NaCl",
+          "perturbation_no_concentration=Nigericin",
+          "perturbation_no_concentration=Nocodazole",
+          "perturbation_no_concentration=Nystatin dihydrate",
+          "perturbation_no_concentration=Oligomycin",
+          "perturbation_no_concentration=Parthenolide",
+          "perturbation_no_concentration=Rapamycin",
+          "perturbation_no_concentration=SDS",
+          "perturbation_no_concentration=Sorbitol",
+          "perturbation_no_concentration=Staurosporine",
+          "perturbation_no_concentration=Trichostatin A",
+          "perturbation_no_concentration=Trifluoperazine dihydrochloride",
+          "perturbation_no_concentration=Tunicamycin",
+          "perturbation_no_concentration=U-73122",
+          "perturbation_no_concentration=Valinomycin",
+          "perturbation_no_concentration=Water",
+          "perturbation_no_concentration=Wortmannin",
+          "Medium=YNB+CSM+2% galactose",
+          "Medium=YNB+CSM+2% glucose",
+          "Temperature=30",
+          "Temperature=37",
+          "pert_time_unit=min",
+          "data_source=WAYB",
+          "data_source=WAYB_rep1",
+          "data_source=WAYB_rep2",
+          "data_source=WAYC",
+          "instrument=CAA",
+          "instrument=CAB",
+          "instrument=CAC",
+          "instrument=O",
+          "instrument=QE1",
+          "instrument=QE2",
+          "instrument=WAH",
+          "log2(pert_time)"
+        ],
+        "feature_slices": {
+          "Strains": [
+            0,
+            4
+          ],
+          "perturbation_no_concentration": [
+            4,
+            43
+          ],
+          "Medium": [
+            43,
+            45
+          ],
+          "Temperature": [
+            45,
+            47
+          ],
+          "pert_time_unit": [
+            47,
+            48
+          ],
+          "data_source": [
+            48,
+            52
+          ],
+          "instrument": [
+            52,
+            59
+          ]
+        },
+        "categorical": {
+          "Strains": {
+            "categories": [
+              "BAH",
+              "CEK",
+              "CGD",
+              "DHY210"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "perturbation_no_concentration": {
+            "categories": [
+              "(1R, 2S, 5R) - (-) - Menthol",
+              "1-10 Phenanthroline monohydrate",
+              "4-Hydroxytamoxifen",
+              "Amiodarone hydrochloride",
+              "Anisomycin",
+              "Artemisinin",
+              "Brefeldin A",
+              "CHX",
+              "Cisplatin",
+              "Clomiphene citrate",
+              "Clotrimazole",
+              "Cyclopiazonic acid",
+              "DMSO",
+              "Desipramine hydrochloride",
+              "Dyclonine hydrochloride",
+              "EDTA",
+              "Emodin",
+              "Geldanamycin",
+              "Haloperidol",
+              "Harmine hydrochloride",
+              "Hoechst 33258",
+              "LY 294002 hydrochloride",
+              "NaCl",
+              "Nigericin",
+              "Nocodazole",
+              "Nystatin dihydrate",
+              "Oligomycin",
+              "Parthenolide",
+              "Rapamycin",
+              "SDS",
+              "Sorbitol",
+              "Staurosporine",
+              "Trichostatin A",
+              "Trifluoperazine dihydrochloride",
+              "Tunicamycin",
+              "U-73122",
+              "Valinomycin",
+              "Water",
+              "Wortmannin"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "Medium": {
+            "categories": [
+              "YNB+CSM+2% galactose",
+              "YNB+CSM+2% glucose"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "Temperature": {
+            "categories": [
+              "30",
+              "37"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "pert_time_unit": {
+            "categories": [
+              "min"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "data_source": {
+            "categories": [
+              "WAYB",
+              "WAYB_rep1",
+              "WAYB_rep2",
+              "WAYC"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "instrument": {
+            "categories": [
+              "CAA",
+              "CAB",
+              "CAC",
+              "O",
+              "QE1",
+              "QE2",
+              "WAH"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          }
+        },
+        "numeric": {
+          "pert_time": {
+            "transform": "log2_zscore",
+            "mean": 5.980930730550863,
+            "scale": 1.311950533069958
+          }
+        },
+        "unseen_policy": "all-zero block for categories absent from split_final=train"
+      },
+      "structure_feature_manifest": {
+        "compound_column": "perturbation_no_concentration",
+        "artifact_entity_count": 56,
+        "fingerprint_dimension": 2048,
+        "descriptor_names": [
+          "mol_wt",
+          "mol_logp",
+          "tpsa",
+          "hbd",
+          "hba"
+        ],
+        "descriptor_mean": [
+          332.8311333438964,
+          1.5197140420699344,
+          85.00872773040471,
+          2.000855981168414,
+          4.6492617162422425
+        ],
+        "descriptor_scale": [
+          245.5024731111115,
+          3.144096599887614,
+          73.45111210679147,
+          2.462559208410496,
+          4.089417322379374
+        ],
+        "descriptor_scaling_fit_scope": "fit rows only",
+        "fit_rows": 4673,
+        "fit_structure_coverage_rows": 4673,
+        "fit_unseen_identity_rows": 0,
+        "target_rows": 1156,
+        "target_structure_coverage_rows": 1156,
+        "target_unseen_identity_rows": 0,
+        "mask_columns": [
+          "structure_available",
+          "identity_seen_in_fit"
+        ],
+        "missing_structure_policy": "zero fingerprint and descriptor plus structure_available=0",
+        "unseen_identity_policy": "public structure retained plus identity_seen_in_fit=0"
+      },
+      "dual_input_manifest": {
+        "condition_feature_count": 21,
+        "condition_feature_names": [
+          "Strains=BAH",
+          "Strains=CEK",
+          "Strains=CGD",
+          "Strains=DHY210",
+          "Medium=YNB+CSM+2% galactose",
+          "Medium=YNB+CSM+2% glucose",
+          "Temperature=30",
+          "Temperature=37",
+          "pert_time_unit=min",
+          "data_source=WAYB",
+          "data_source=WAYB_rep1",
+          "data_source=WAYB_rep2",
+          "data_source=WAYC",
+          "instrument=CAA",
+          "instrument=CAB",
+          "instrument=CAC",
+          "instrument=O",
+          "instrument=QE1",
+          "instrument=QE2",
+          "instrument=WAH",
+          "log2(pert_time)"
+        ],
+        "condition_excludes_compound_identity": true,
+        "drug_feature_count": 2094,
+        "compound_identity_dimension": 39,
+        "drug_layout": [
+          "train-vocabulary compound one-hot",
+          "Morgan-2048",
+          "five train-standardized RDKit descriptors",
+          "structure_available",
+          "identity_seen_in_fit"
+        ],
+        "drug_structure_offset": 39,
+        "drug_seen_mask_index": 2093
+      }
+    },
+    {
+      "fold_id": 4,
+      "train_rows": 4675,
+      "holdout_rows": 1154,
+      "train_unique_biological_groups": 2824,
+      "holdout_unique_biological_groups": 705,
+      "biological_group_overlap": 0,
+      "best_epoch": 210,
+      "best_holdout_masked_mse": 0.09447969597853767,
+      "parameter_count": 2007366,
+      "checkpoint": "folds/fold-4.pt",
+      "checkpoint_sha256": "c3bceaf2f20441b827e4772627936eed0947cc2ba2a2d27b514489268e23cdd5",
+      "history": "folds/fold-4-history.json",
+      "history_sha256": "629542b872eeacd9e48a4ee3b6cb31d5ba50610c4cbb53a73c6dbbf6a329de0e",
+      "statistics_scope": "fold training rows only",
+      "base_profile_sha256": "8871c6d55f1ecc3c2df56bf391ee0fded485abd10f8cc5b89bbd44e17778d08e",
+      "metadata_feature_manifest": {
+        "feature_count": 60,
+        "feature_names": [
+          "Strains=BAH",
+          "Strains=CEK",
+          "Strains=CGD",
+          "Strains=DHY210",
+          "perturbation_no_concentration=(1R, 2S, 5R) - (-) - Menthol",
+          "perturbation_no_concentration=1-10 Phenanthroline monohydrate",
+          "perturbation_no_concentration=4-Hydroxytamoxifen",
+          "perturbation_no_concentration=Amiodarone hydrochloride",
+          "perturbation_no_concentration=Anisomycin",
+          "perturbation_no_concentration=Artemisinin",
+          "perturbation_no_concentration=Brefeldin A",
+          "perturbation_no_concentration=CHX",
+          "perturbation_no_concentration=Cisplatin",
+          "perturbation_no_concentration=Clomiphene citrate",
+          "perturbation_no_concentration=Clotrimazole",
+          "perturbation_no_concentration=Cyclopiazonic acid",
+          "perturbation_no_concentration=DMSO",
+          "perturbation_no_concentration=Desipramine hydrochloride",
+          "perturbation_no_concentration=Dyclonine hydrochloride",
+          "perturbation_no_concentration=EDTA",
+          "perturbation_no_concentration=Emodin",
+          "perturbation_no_concentration=Geldanamycin",
+          "perturbation_no_concentration=Haloperidol",
+          "perturbation_no_concentration=Harmine hydrochloride",
+          "perturbation_no_concentration=Hoechst 33258",
+          "perturbation_no_concentration=LY 294002 hydrochloride",
+          "perturbation_no_concentration=NaCl",
+          "perturbation_no_concentration=Nigericin",
+          "perturbation_no_concentration=Nocodazole",
+          "perturbation_no_concentration=Nystatin dihydrate",
+          "perturbation_no_concentration=Oligomycin",
+          "perturbation_no_concentration=Parthenolide",
+          "perturbation_no_concentration=Rapamycin",
+          "perturbation_no_concentration=SDS",
+          "perturbation_no_concentration=Sorbitol",
+          "perturbation_no_concentration=Staurosporine",
+          "perturbation_no_concentration=Trichostatin A",
+          "perturbation_no_concentration=Trifluoperazine dihydrochloride",
+          "perturbation_no_concentration=Tunicamycin",
+          "perturbation_no_concentration=U-73122",
+          "perturbation_no_concentration=Valinomycin",
+          "perturbation_no_concentration=Water",
+          "perturbation_no_concentration=Wortmannin",
+          "Medium=YNB+CSM+2% galactose",
+          "Medium=YNB+CSM+2% glucose",
+          "Temperature=30",
+          "Temperature=37",
+          "pert_time_unit=min",
+          "data_source=WAYB",
+          "data_source=WAYB_rep1",
+          "data_source=WAYB_rep2",
+          "data_source=WAYC",
+          "instrument=CAA",
+          "instrument=CAB",
+          "instrument=CAC",
+          "instrument=O",
+          "instrument=QE1",
+          "instrument=QE2",
+          "instrument=WAH",
+          "log2(pert_time)"
+        ],
+        "feature_slices": {
+          "Strains": [
+            0,
+            4
+          ],
+          "perturbation_no_concentration": [
+            4,
+            43
+          ],
+          "Medium": [
+            43,
+            45
+          ],
+          "Temperature": [
+            45,
+            47
+          ],
+          "pert_time_unit": [
+            47,
+            48
+          ],
+          "data_source": [
+            48,
+            52
+          ],
+          "instrument": [
+            52,
+            59
+          ]
+        },
+        "categorical": {
+          "Strains": {
+            "categories": [
+              "BAH",
+              "CEK",
+              "CGD",
+              "DHY210"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "perturbation_no_concentration": {
+            "categories": [
+              "(1R, 2S, 5R) - (-) - Menthol",
+              "1-10 Phenanthroline monohydrate",
+              "4-Hydroxytamoxifen",
+              "Amiodarone hydrochloride",
+              "Anisomycin",
+              "Artemisinin",
+              "Brefeldin A",
+              "CHX",
+              "Cisplatin",
+              "Clomiphene citrate",
+              "Clotrimazole",
+              "Cyclopiazonic acid",
+              "DMSO",
+              "Desipramine hydrochloride",
+              "Dyclonine hydrochloride",
+              "EDTA",
+              "Emodin",
+              "Geldanamycin",
+              "Haloperidol",
+              "Harmine hydrochloride",
+              "Hoechst 33258",
+              "LY 294002 hydrochloride",
+              "NaCl",
+              "Nigericin",
+              "Nocodazole",
+              "Nystatin dihydrate",
+              "Oligomycin",
+              "Parthenolide",
+              "Rapamycin",
+              "SDS",
+              "Sorbitol",
+              "Staurosporine",
+              "Trichostatin A",
+              "Trifluoperazine dihydrochloride",
+              "Tunicamycin",
+              "U-73122",
+              "Valinomycin",
+              "Water",
+              "Wortmannin"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "Medium": {
+            "categories": [
+              "YNB+CSM+2% galactose",
+              "YNB+CSM+2% glucose"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "Temperature": {
+            "categories": [
+              "30",
+              "37"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "pert_time_unit": {
+            "categories": [
+              "min"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "data_source": {
+            "categories": [
+              "WAYB",
+              "WAYB_rep1",
+              "WAYB_rep2",
+              "WAYC"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          },
+          "instrument": {
+            "categories": [
+              "CAA",
+              "CAB",
+              "CAC",
+              "O",
+              "QE1",
+              "QE2",
+              "WAH"
+            ],
+            "target_unseen_categories": [],
+            "target_rows_with_unseen": 0
+          }
+        },
+        "numeric": {
+          "pert_time": {
+            "transform": "log2_zscore",
+            "mean": 6.002607550270129,
+            "scale": 1.3032112764945876
+          }
+        },
+        "unseen_policy": "all-zero block for categories absent from split_final=train"
+      },
+      "structure_feature_manifest": {
+        "compound_column": "perturbation_no_concentration",
+        "artifact_entity_count": 56,
+        "fingerprint_dimension": 2048,
+        "descriptor_names": [
+          "mol_wt",
+          "mol_logp",
+          "tpsa",
+          "hbd",
+          "hba"
+        ],
+        "descriptor_mean": [
+          334.24815578848285,
+          1.4707072429610963,
+          86.18729288131796,
+          2.0355080213903745,
+          4.689625668449198
+        ],
+        "descriptor_scale": [
+          245.2142507068688,
+          3.1852302661656027,
+          74.65883602744935,
+          2.4783169063778443,
+          4.10156216085297
+        ],
+        "descriptor_scaling_fit_scope": "fit rows only",
+        "fit_rows": 4675,
+        "fit_structure_coverage_rows": 4675,
+        "fit_unseen_identity_rows": 0,
+        "target_rows": 1154,
+        "target_structure_coverage_rows": 1154,
+        "target_unseen_identity_rows": 0,
+        "mask_columns": [
+          "structure_available",
+          "identity_seen_in_fit"
+        ],
+        "missing_structure_policy": "zero fingerprint and descriptor plus structure_available=0",
+        "unseen_identity_policy": "public structure retained plus identity_seen_in_fit=0"
+      },
+      "dual_input_manifest": {
+        "condition_feature_count": 21,
+        "condition_feature_names": [
+          "Strains=BAH",
+          "Strains=CEK",
+          "Strains=CGD",
+          "Strains=DHY210",
+          "Medium=YNB+CSM+2% galactose",
+          "Medium=YNB+CSM+2% glucose",
+          "Temperature=30",
+          "Temperature=37",
+          "pert_time_unit=min",
+          "data_source=WAYB",
+          "data_source=WAYB_rep1",
+          "data_source=WAYB_rep2",
+          "data_source=WAYC",
+          "instrument=CAA",
+          "instrument=CAB",
+          "instrument=CAC",
+          "instrument=O",
+          "instrument=QE1",
+          "instrument=QE2",
+          "instrument=WAH",
+          "log2(pert_time)"
+        ],
+        "condition_excludes_compound_identity": true,
+        "drug_feature_count": 2094,
+        "compound_identity_dimension": 39,
+        "drug_layout": [
+          "train-vocabulary compound one-hot",
+          "Morgan-2048",
+          "five train-standardized RDKit descriptors",
+          "structure_available",
+          "identity_seen_in_fit"
+        ],
+        "drug_structure_offset": 39,
+        "drug_seen_mask_index": 2093
+      }
+    }
+  ],
+  "quality": {
+    "finite_prediction_fraction": 1.0,
+    "observed_fraction": 0.8463901736191856,
+    "observed_oof_residual_mean": -0.0003454273391980678,
+    "observed_oof_residual_rmse": 0.30758832766209815
+  },
+  "runtime": {
+    "python": "3.13.14",
+    "torch": "2.13.0+cu132",
+    "sklearn": "1.9.0",
+    "device": "cuda",
+    "device_name": "NVIDIA H100 PCIe",
+    "peak_gpu_memory_allocated_bytes": 172784640,
+    "elapsed_seconds": 481.7805157722905,
+    "omp_num_threads": 2,
+    "mkl_num_threads": 2,
+    "distributed_training": false
+  }
+}

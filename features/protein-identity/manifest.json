@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-16T14:52:24.482002+08:00",
+  "entity_count": 5243,
+  "organism": "Saccharomyces cerevisiae S288C",
+  "ncbi_taxon_id": 559292,
+  "uniprot_reviewed_source_rows": 6733,
+  "resolution_counts": {
+    "explicit_alias": 1,
+    "primary_exact": 4803,
+    "unique_uniprot_alias": 439
+  },
+  "go_annotation_rows": 47127,
+  "go_evidence_annotation_rows": 127175,
+  "go_evidence_protein_coverage": 5239,
+  "go_evidence_source_counts": {
+    "GOA SGD GAF": 127025,
+    "QuickGO API spot check": 150
+  },
+  "go_evidence_code_counts": {
+    "ECO:0000245": 2,
+    "ECO:0000250": 4,
+    "ECO:0000256": 25,
+    "ECO:0000307": 34,
+    "ECO:0000314": 10,
+    "ECO:0000315": 29,
+    "ECO:0000316": 1,
+    "ECO:0000318": 2,
+    "ECO:0000353": 1,
+    "ECO:0000366": 3,
+    "ECO:0000501": 19,
+    "ECO:0007001": 1,
+    "ECO:0007005": 6,
+    "ECO:0007322": 13,
+    "EXP": 2142,
+    "HDA": 6797,
+    "HGI": 48,
+    "HMP": 66,
+    "IBA": 14881,
+    "IC": 366,
+    "IDA": 20096,
+    "IEA": 25547,
+    "IEP": 15,
+    "IGI": 5168,
+    "IMP": 14172,
+    "IPI": 24827,
+    "ISA": 230,
+    "ISM": 34,
+    "ISO": 14,
+    "ISS": 623,
+    "NAS": 3864,
+    "ND": 1995,
+    "RCA": 4482,
+    "TAS": 1658
+  },
+  "quickgo_spotcheck": {
+    "purpose": "Independent API verification of OCT1 alias and the three UniProt-mapped transposon proteins lacking SGD cross-references, followed by targeted accession queries for every GOA-GAF coverage gap; not a claim of a full-axis QuickGO crawl",
+    "result_counts": {
+      "a0a023pzi1-opi11-gap-audit.json": 3,
+      "o42831-yar075w-gap-audit.json": 6,
+      "o94086-ylr349w-gap-audit.json": 3,
+      "p0c155-yol153c-gap-audit.json": 6,
+      "p0c2i7-ty1b-lr4-annotations.json": 13,
+      "p0c2j2-ty2a-gr1-annotations.json": 2,
+      "p0cf21-yil168w-gap-audit.json": 6,
+      "p0cf22-sdl1-gap-audit.json": 6,
+      "p0cf34-sdc25-gap-audit.json": 3,
+      "p25602-ycl076w-gap-audit.json": 3,
+      "p35999-oct1-annotations.json": 17,
+      "p39567-imd1-gap-audit.json": 10,
+      "p40068-flo8-gap-audit.json": 30,
+      "p40542-yil025c-gap-audit.json": 3,
+      "p41902-crs5-gap-audit.json": 6,
+      "p43547-aad6-gap-audit.json": 0,
+      "p9wej2-ynl155c-a-gap-audit.json": 0,
+      "p9wej3-ymr106w-a-gap-audit.json": 0,
+      "p9wej4-yfr035w-a-gap-audit.json": 4,
+      "p9wen8-yhr052c-b-gap-audit.json": 0,
+      "q02217-yel034c-a-gap-audit.json": 4,
+      "q04019-ymr245w-gap-audit.json": 3,
+      "q12064-bud30-gap-audit.json": 3,
+      "q12337-ty2b-gr1-annotations.json": 11,
+      "q12479-irc11-gap-audit.json": 4,
+      "q99341-fyv1-gap-audit.json": 4
+    },
+    "targeted_gap_query_count": 22,
+    "targeted_gap_zero_hit_files": [
+      "p43547-aad6-gap-audit.json",
+      "p9wej2-ynl155c-a-gap-audit.json",
+      "p9wej3-ymr106w-a-gap-audit.json",
+      "p9wen8-yhr052c-b-gap-audit.json"
+    ]
+  },
+  "cross_reference_coverage": {
+    "sgd_id": 5240,
+    "string_id": 5174,
+    "biogrid_id": 5209,
+    "reactome_ids": 1579,
+    "kegg_ids": 5217,
+    "go_ids": 5177,
+    "uniprot_pathway": 595
+  },
+  "sequence_feature_contract": {
+    "amino_acid_order": [
+      "A",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H",
+      "I",
+      "K",
+      "L",
+      "M",
+      "N",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "V",
+      "W",
+      "Y"
+    ],
+    "feature_count": 21,
+    "scaling": "none"
+  },
+  "explicit_aliases": {
+    "1-Oct": {
+      "canonical_gene_symbol": "OCT1",
+      "reason": "probable spreadsheet date conversion; OCT1 is the sole evidence-backed repair"
+    }
+  },
+  "data_boundary": {
+    "protein_values_loaded": false,
+    "protein_header_only": true,
+    "learned_statistics": false
+  },
+  "hashes": {
+    "official_protein_axis_sha256": "a5f8602ab7037b24d8a1256e643779168d7c6bba0a02b0f31692dd416dcb43b1",
+    "uniprot_raw_sha256": "3e99dd25a30ce00ab748d5a48e2259ec0b0236bf85ddc827c90416f7a7c17873",
+    "contract_sha256": "769d3f024789bd16d9e6077f0bcaee50958d84a45f4454a33d2aec305eb9f068",
+    "go_annotations_sha256": "34ce035c3a7a6fbbf9515c3aabb4c5cccf1dd640aaed4158f2995d9be9429e56",
+    "go_evidence_annotations_sha256": "31d5c4e3ba8ab4dfffc1b0298ecad6189cec3af57d76734f19d52e7fc3ceffd0",
+    "sgd_gaf_sha256": "f9c603d5fc358d7a2fa3dc6cd8d354d0723a13e1dfa92e608091d11943d4559e",
+    "sequences_sha256": "78fda8267c568d67b0cbbb5fec5216a1bd8f38a031640d97cb278ab3d569a585",
+    "sequence_features_sha256": "bb7405410ff251b352b9b7dd719178c835a6ed52640b4848684fa1d37ecafaa9",
+    "quickgo_spotcheck_sha256": "0ae04ce97655f764cc8cbb54dd56e1cb4c9f52db72a6b5b6699cbb6b53a6c82e"
+  }
+}

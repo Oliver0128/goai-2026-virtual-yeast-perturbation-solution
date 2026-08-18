@@ -1,0 +1,16 @@
+pert_id,chemical_name_count,chemical_names,data_sources
+#10,2,Artemisinin;Rapamycin,WAYB;WAYB_rep1;WAYB_rep2;WAYC
+#11,2,Brefeldin A;FCCP,WAYB;WAYB_rep1;WAYB_rep2;WAYC
+#12,2,Clomiphene citrate;DMSO,WAYB;WAYB_rep1;WAYB_rep2;WAYC
+#13,2,Clotrimazole;NaCl,WAYB;WAYB_rep1;WAYB_rep2;WAYC
+#14,2,Cyclopiazonic acid;Hydroxyurea,WAYB;WAYB_rep1;WAYB_rep2;WAYC
+#15,2,Desipramine hydrochloride;Sorbitol,WAYB;WAYB_rep1;WAYB_rep2;WAYC
+#16,2,Doxycycline hyclate;EDTA,WAYB;WAYB_rep1;WAYB_rep2;WAYC
+#2,2,DMSO;EDTA,WAYB;WAYB_rep1;WAYB_rep2;WAYC
+#3,2,Abietic acid;H2O2,WAYB;WAYB_rep1;WAYB_rep2;WAYC
+#4,2,"(1R, 2S, 5R) - (-) - Menthol;MMS",WAYB;WAYB_rep1;WAYB_rep2;WAYC
+#5,2,(S)-(+)-Camptothecin;Cisplatin,WAYB;WAYB_rep1;WAYB_rep2;WAYC
+#6,2,1-10 Phenanthroline monohydrate;CHX,WAYB;WAYB_rep1;WAYB_rep2;WAYC
+#7,2,4-Hydroxytamoxifen;SDS,WAYB;WAYB_rep1;WAYB_rep2;WAYC
+#8,2,Amiodarone hydrochloride;G418,WAYB;WAYB_rep1;WAYB_rep2;WAYC
+#9,2,Amphotericin B;Anisomycin,WAYB;WAYB_rep1;WAYB_rep2;WAYC

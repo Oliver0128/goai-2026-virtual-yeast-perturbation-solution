@@ -1,0 +1,14 @@
+artifact,recommended_tier,coverage,required_guard
+compound-structure/fingerprints.npz,primary_candidate,56/56 compounds,scale using train rows only; preserve curated parent/salt caveats
+strain-genome/population-distance-pca.npz,primary_candidate_with_missing_mask,5/6 strains,never impute DHY210 from validation/test labels
+strain-genome/genomic-features.npz,primary_candidate_with_ablation,5/6 strains,public entity data only; handle missing DHY210 explicitly
+strain-genome/strain-proteome-features.npz,primary_candidate_with_missing_mask_and_ablation,BAH 5168; BAI 5168; CEK 5159; CGD 4921; CRD 5162; DHY210 0 of 5243,Peter-2018 SNP-inferred source; preserve source caveats and never synthesize DHY210
+strain-genome/phenotype-features-diagnostic.npz,diagnostic_only,5/6 strains x 35 conditions,do not use in primary model without separate leakage/compliance approval
+protein-identity/sequence-features.npz,primary_candidate,5243/5243 proteins,downstream scaling fitted on train rows only
+protein-identity/go-annotations.csv.gz,primary_candidate_with_ablation,5177/5243 proteins,record UniProt/QuickGO snapshot and ontology semantics
+protein-identity/go-annotations-evidence.csv.gz,primary_candidate_with_evidence_filtering_and_ablation,5239/5243 proteins; 127175 evidence rows,retain evidence code/reference/source; evaluate experimental-only and all-evidence variants separately
+protein-identity/ppi-physical-edges.tsv.gz,primary_candidate_with_ablation,4539/5243 proteins; 61944 edges,"STRING v12 physical network, score >=400; no competition values"
+compound-knowledge/mechanisms.csv,mechanistic_prior_or_sensitivity,23 rows,organism may be non-yeast; do not claim direct yeast causality
+compound-knowledge/compound-protein-edges.csv.gz,mechanistic_prior_with_ablation,30 yeast-axis evidence rows,keep assay provenance; do not convert activity concentration into competition dose
+dose-audit/contract.csv,prohibition_contract,56/56 compounds,competition dose remains missing; no IC50/potency substitution
+dose-audit/source-audit.csv,audit_only,released metadata + 3 exact PRIDE searches + PXD023613 manual exclusion,PXD023613 10 uM is BY4741/TripleTOF external evidence and is never a WAYB/WAYC dose

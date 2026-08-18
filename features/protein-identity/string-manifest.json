@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-16T14:51:15.371499+08:00",
+  "source": "STRING API",
+  "string_version": "12.0",
+  "species": "Saccharomyces cerevisiae",
+  "ncbi_taxon_id": 4932,
+  "network_type": "physical",
+  "required_score": 400,
+  "competition_protein_count": 5243,
+  "mapped_accession_count": 5199,
+  "preexisting_string_id_count": 5174,
+  "preexisting_mapping_concordant_count": 5174,
+  "edge_count": 61944,
+  "covered_protein_count": 4539,
+  "policy": "External public entity feature only; no competition proteome values or labels were submitted to STRING",
+  "hashes": {
+    "contract_sha256": "769d3f024789bd16d9e6077f0bcaee50958d84a45f4454a33d2aec305eb9f068",
+    "mapping_sha256": "e5bebcb9c019959d39c8dafa80c2879b0242c09b75aa5fe15ca307c241d3b0c4",
+    "bulk_physical_links_sha256": "a9d9d5812b0c3c798fee839751b884587ea85174b733149b5ac87d7d87683958",
+    "bulk_protein_info_sha256": "ad69b4594f35cf6ffeb52afbfc3fe30d639bb76e0b883bc914dce8b2acb3e29c",
+    "edge_sha256": "0becb69d4b3aa994a98001ee2969acb01846df5655735d2e710dd3c6dcd1193c"
+  }
+}

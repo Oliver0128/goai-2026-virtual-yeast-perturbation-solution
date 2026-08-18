@@ -1,0 +1,6 @@
+source_kind,source_id,query_or_scope,result_count,dose_evidence,adoption_status,reason
+released competition metadata,WAYB_WAYC metadata train_val + test,"13,412 released rows; all 15 columns audited",13412,,authoritative_absence_contract,No explicit treatment dose column; perturbation_no_concentration is a name field and pert_id is not globally unique
+PRIDE Archive exact keyword search,pride-search-dhy210,dhy210,0,,no_authoritative_competition_source_found,No matching PRIDE project was returned by the current search endpoint
+PRIDE Archive exact keyword search,pride-search-yeast-chemical-perturbation,yeast chemical perturbation,0,,no_authoritative_competition_source_found,No matching PRIDE project was returned by the current search endpoint
+PRIDE Archive exact keyword search,pride-search-yeast-drug-proteomics,yeast drug proteomics,0,,no_authoritative_competition_source_found,No matching PRIDE project was returned by the current search endpoint
+PRIDE project manual audit,PXD023613,Minute-scale proteomics with Scanning SWATH and high-flow chromatography,1,10 μM,excluded_not_competition_dose,"Public external prior uses prototrophic BY4741, TripleTOF 6600 and an overnight 10 uM drug screen; these conditions do not identify any WAYB/WAYC competition sample or its treatment concentration"

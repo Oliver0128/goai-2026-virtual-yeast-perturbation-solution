@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-16T14:53:03.175360+08:00",
+  "chembl_release": "ChEMBL_37",
+  "chembl_release_date": "2026-05-01",
+  "competition_entity_count": 56,
+  "exact_chembl_match_count": 53,
+  "unmapped_compounds": [
+    "Cisplatin",
+    "Doxycycline hyclate",
+    "Nystatin dihydrate"
+  ],
+  "non_adopted_mapping_candidate_rows": 29,
+  "curated_mechanism_rows": 23,
+  "yeast_activity_rows": 517,
+  "yeast_target_rows": 14,
+  "compound_protein_edge_rows": 30,
+  "direct_competition_axis_edge_rows": 30,
+  "compound_pathway_rows": 30,
+  "dose_policy": "ChEMBL activity concentrations are external assay measurements and must never be used as the missing competition treatment dose",
+  "hashes": {
+    "structure_contract_sha256": "cbf5f6a1b5feb0202d91b5e58c123bee89354b6e86b1e534b55b3a600fa8a327",
+    "protein_contract_sha256": "769d3f024789bd16d9e6077f0bcaee50958d84a45f4454a33d2aec305eb9f068",
+    "contract.csv": "9ef2d09bedae5b64fc0bd3164af9c0938d8799d87cdb11b9f9bb468799cbb6af",
+    "mapping-candidates.csv": "2aa96409d2c733a35536152aef805aa950e2c56236eda80a401f6c9068a84335",
+    "mechanisms.csv": "2e02d2c39e1d34a5ee81bb627130dc296dfbf99c31196ed5d8d08066069b3363",
+    "yeast-activities.csv.gz": "b5b656c3173359e8818556834f03d64a38a0d3e6b196bfc27612866f16b24d32",
+    "targets.csv": "65d3a9e93a7a3f5c77e32ea9e435b1f278371ab68e88534f8a17084cb62e9367",
+    "compound-protein-edges.csv.gz": "cfe7ce9fb1bd2af55fcfba62ff56edcd4908b680f679a2dded8e421b9a7cd582",
+    "compound-pathways.csv.gz": "bf46828e7c2563866ce13ca1c2b6f5dad5616c72680e8dec630a68741eda7016"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-16T14:51:37.866394+08:00",
+  "released_metadata_rows": 13412,
+  "released_metadata_column_count": 15,
+  "released_metadata_columns": [
+    "sample_ID",
+    "data_source",
+    "Strains",
+    "Medium",
+    "Temperature",
+    "pert_time",
+    "pert_time_unit",
+    "pert_id",
+    "perturbation_no_concentration",
+    "instrument",
+    "Yeast_cell_plate",
+    "protein_well",
+    "split_final",
+    "strain_role",
+    "chemical_role"
+  ],
+  "explicit_dose_columns": [],
+  "name_field": "perturbation_no_concentration",
+  "competition_compound_count": 56,
+  "pert_id_unique_count": 48,
+  "pert_id_collision_count": 15,
+  "dose_conclusion": "No competition treatment concentration is present; it cannot be reconstructed from structure, pert_id, ChEMBL potency, IC50, or public assay concentration",
+  "safe_model_policy": "Use compound identity/structure and separately audited mechanism priors; omit competition dose unless an authoritative competition source releases it",
+  "source_provenance_audit": {
+    "pride_exact_keyword_searches": 3,
+    "pride_exact_keyword_zero_hit_searches": 3,
+    "pxd023613_external_dose": "10 μM",
+    "pxd023613_organisms": "Homo sapiens (human);Saccharomyces cerevisiae (baker's yeast)",
+    "pxd023613_instruments": "TripleTOF 6600",
+    "pxd023613_adopted_as_competition_dose": false,
+    "conclusion": "The only locally cited PRIDE prior is an external BY4741/TripleTOF experiment and cannot identify WAYB/WAYC sample doses"
+  },
+  "protein_values_loaded": false,
+  "hashes": {
+    "metadata_train_val_sha256": "9414f22d71e925a3b85544b49fde252613c87808d34738a84785003adb8131ef",
+    "metadata_test_sha256": "42f2df9ea79f28da8344e96b5181edacc215744a858d1a4eaa729c2e1cc69d31",
+    "compound_contract_sha256": "9ef2d09bedae5b64fc0bd3164af9c0938d8799d87cdb11b9f9bb468799cbb6af",
+    "compound_activities_sha256": "b5b656c3173359e8818556834f03d64a38a0d3e6b196bfc27612866f16b24d32",
+    "contract_sha256": "8aba5c4ff997914cbda615c1727e18d7320c5afabc491594782762c6250001d8",
+    "pert_id_collisions_sha256": "66d7648714039b6e0200a16d03b02605ba9cc09a861c1e8d7070c4d68df7b78b",
+    "source_audit_sha256": "6d449874bfe964901d2689043c213dc531d0e33832b6f1050993aa8866512e18",
+    "pride_pxd023613_sha256": "9220a3a675323dd5974e2e2e0deafa631ce30ce26ca2ac7dd51af8783ceeefd5",
+    "pride_search_snapshot_sha256": "c256c20bb61f304be253ef9f6a532198ea13ce3f5ee086c62dc596ef8a19ca09"
+  }
+}

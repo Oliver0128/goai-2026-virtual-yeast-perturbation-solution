@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-16T15:00:35.880749+08:00",
+  "verdict": "pass_with_documented_gaps",
+  "data_boundary": {
+    "validation_or_test_proteome_values_loaded": false,
+    "protein_axis_access": "header_only",
+    "released_metadata_used": true,
+    "external_public_entity_data_used": true
+  },
+  "strain": {
+    "competition_count": 6,
+    "exact_1011_mapping_count": 5,
+    "population_embedding_coverage": 5,
+    "exact_ncbi_assembly_count": 2,
+    "dhy210_exact_genotype_resolved": false,
+    "dhy210_proxy": "S288C R64 GCF_000146045.2",
+    "strain_proteome_axis_coverage": {
+      "BAH": 5168,
+      "BAI": 5168,
+      "CEK": 5159,
+      "CGD": 4921,
+      "CRD": 5162,
+      "DHY210": 0
+    },
+    "strain_proteome_source": "Peter et al. 2018 1011proteome.tar.gz",
+    "exact_ena_assembly_unresolved": [
+      "CEK",
+      "CGD",
+      "CRD"
+    ]
+  },
+  "protein": {
+    "axis_count": 5243,
+    "uniprot_mapping_count": 5243,
+    "sgd_mapping_count": 5240,
+    "go_mapping_count": 5177,
+    "go_evidence_mapping_count": 5239,
+    "go_evidence_annotation_rows": 127175,
+    "sequence_count": 5243,
+    "explicit_aliases": {
+      "1-Oct": {
+        "canonical_gene_symbol": "OCT1",
+        "reason": "probable spreadsheet date conversion; OCT1 is the sole evidence-backed repair"
+      }
+    },
+    "ppi_edge_count": 61944,
+    "ppi_protein_coverage": 4539
+  },
+  "compound": {
+    "entity_count": 56,
+    "exact_pubchem_structure_count": 56,
+    "exact_chembl_match_count": 53,
+    "unmapped_chembl": [
+      "Cisplatin",
+      "Doxycycline hyclate",
+      "Nystatin dihydrate"
+    ],
+    "curated_mechanism_rows": 23,
+    "yeast_activity_rows": 517,
+    "direct_compound_protein_rows": 30
+  },
+  "dose": {
+    "explicit_column_count": 0,
+    "pert_id_collision_count": 15,
+    "recoverable": false,
+    "conclusion": "No competition treatment concentration is present; it cannot be reconstructed from structure, pert_id, ChEMBL potency, IC50, or public assay concentration",
+    "pride_provenance_audit": {
+      "pride_exact_keyword_searches": 3,
+      "pride_exact_keyword_zero_hit_searches": 3,
+      "pxd023613_external_dose": "10 μM",
+      "pxd023613_organisms": "Homo sapiens (human);Saccharomyces cerevisiae (baker's yeast)",
+      "pxd023613_instruments": "TripleTOF 6600",
+      "pxd023613_adopted_as_competition_dose": false,
+      "conclusion": "The only locally cited PRIDE prior is an external BY4741/TripleTOF experiment and cannot identify WAYB/WAYC sample doses"
+    }
+  },
+  "remaining_gaps": [
+    "DHY210 exact accession, private variants, and exact genome remain unavailable",
+    "CEK/CGD/CRD exact NCBI and ENA assemblies were not found by isolate name; their Peter-2018 strain proteomes are available but are not genome assemblies",
+    "Three salt/solvate/inorganic compounds lack exact ChEMBL standard-InChIKey matches",
+    "Curated mechanism and direct yeast target coverage are sparse and must be ablated",
+    "Competition treatment dose is not released and is not reconstructible",
+    "4 protein-axis entries still lack an evidence-bearing GO annotation after targeted QuickGO gap queries"
+  ],
+  "license_review_required": [
+    "UniProt",
+    "QuickGO",
+    "STRING",
+    "ChEMBL"
+  ]
+}

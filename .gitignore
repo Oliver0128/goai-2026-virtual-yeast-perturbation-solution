@@ -1,0 +1,45 @@
+# Competition data and restricted materials
+data/
+competition-materials/
+*.csv
+*.npz
+*.pt
+*.pth
+*.ckpt
+
+# Generated outputs
+outputs/
+experiments/
+wandb/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+
+# Editors and operating systems
+.DS_Store
+.idea/
+.vscode/
+
+# Publicly shareable frozen model weights and derived research features.
+# Official organizer data remains excluded by the broader data/ rule above.
+!models/
+!models/**/
+!models/**/*.pt
+!models/**/*.json
+!models/**/*.md
+!features/
+!features/**/
+!features/**/*.py
+!features/**/*.json
+!features/**/*.md
+!features/**/*.txt
+!features/**/*.csv
+!features/**/*.csv.gz
+!features/**/*.tsv.gz
+!features/**/*.npz
+!features/**/*.fasta.gz

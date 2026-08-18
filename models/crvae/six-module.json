@@ -1,0 +1,786 @@
+{
+  "schema_version": "1.1",
+  "scorer_name": "goai-official-faithful-provisional",
+  "scorer_version": "1.1.0",
+  "profile": "current-handbook-sample-mean-v1",
+  "score_status": "provisional_due_to_unpublished_internal_aggregation",
+  "generated_at": "2026-08-16T20:19:27.903937+08:00",
+  "official_sources": {
+    "handbook_date": "2026-08-14",
+    "handbook_sha256": "004b9c17dd9760cd2e760e761ab3282bd46fa9f82395df6e90afda56bedeea49",
+    "revision_sha256": "cac5dc4fe1862f08272398e16ee88961c79e9b191151beb5644cfdee89fbbe78",
+    "website_verified_at": "2026-08-15T12:35:00+08:00",
+    "official_module_weights": "20/25/20/20/10/5"
+  },
+  "boundary": {
+    "reference_fit_split": "train",
+    "scored_splits": [
+      "val_chem_only",
+      "val_strain_only",
+      "val_both",
+      "val_time"
+    ],
+    "scored_sample_role": "treatment_only",
+    "validation_truth_used_for_scoring_only": true,
+    "separate_evaluation_truth_loaded": false,
+    "test_truth_loaded": false,
+    "matched_control_truth_scope": "released_train_validation_controls_used_only_after_prediction_freeze",
+    "prediction_scale": "log2"
+  },
+  "data_contract": {
+    "metadata_file": "WAYB_WAYC_metadata_train_val(1).csv",
+    "proteome_file": "WAYB_WAYC_proteome_raw_train_val.csv",
+    "prediction_file": "prediction.csv",
+    "train_samples": 5920,
+    "validation_treatment_samples": 2806,
+    "raw_proteins": 5243,
+    "retained_proteins": 4422,
+    "removed_proteins": 821,
+    "train_missing_rate_rule": "< 0.8",
+    "metadata_sha256": "9414f22d71e925a3b85544b49fde252613c87808d34738a84785003adb8131ef",
+    "proteome_sha256": "a15d9a40a6ad4e8e84a4ce4ed08644fce78780d31ace5561928517c4a5fa7ccb",
+    "prediction_sha256": "19656cfca94c1bf45560e78531bd3148f4c03d324bd3783c00027e40fe89adb2",
+    "sample_axis_sha256": "a2bde66162df191b5d7dc6c42773a564a67420802aa643cd90a0a2ad55a94a7d",
+    "protein_axis_sha256": "f112e7fffae4d3158ec9985a6c9cfa25e1a7dd40f847092561ea023bc1d8a45f",
+    "train_reference_sha256": "f59e2c823e4ee5547d8910f94e8eebacd1660c44b02e9a31a0d82c2fb449b477",
+    "config_sha256": "932a8791d14f813f5bca47b1935f04f7356b66984020f220abbed1a8ac324da2"
+  },
+  "assumptions": {
+    "control_match_semantic_fields": [
+      "source",
+      "strain",
+      "medium",
+      "temperature",
+      "time",
+      "instrument",
+      "plate"
+    ],
+    "control_match_columns": [
+      "data_source",
+      "Strains",
+      "Medium",
+      "Temperature",
+      "pert_time",
+      "instrument",
+      "Yeast_cell_plate",
+      "pert_time_unit"
+    ],
+    "multi_control_aggregation": "mean",
+    "control_solvent_policy": "pool_all_exactly_matched_water_and_dmso_and_report_conflicts",
+    "reference_aggregation": "mean",
+    "reference_aggregation_unit": "matched_train_treatment_sample",
+    "per_sample_aggregation": "mean",
+    "score_normalization": "clip_0_1",
+    "undefined_policy": "raw_finite_only_and_zero_undefined_samples_in_proxy_without_weight_renormalization",
+    "scored_sample_scope": "treatment_only_local_assumption",
+    "module5_internal_weights": "configured_equal_local_assumption",
+    "module6_internal_weights": "configured_equal_local_assumption",
+    "module6_detection_axis": "pooled_sample_protein_pairs",
+    "module6_high_effect_pcc_axis": "per_sample_mean"
+  },
+  "provisional_weighted_proxy": 0.49792239046355047,
+  "provisional_weighted_proxy_100": 49.79223904635505,
+  "provisional_weighted_raw_unclipped": 0.4981710798829745,
+  "modules": {
+    "m1": {
+      "module_id": "m1",
+      "name": "absolute_fidelity",
+      "official_weight": 0.2,
+      "raw_score": 0.9810017577346408,
+      "proxy_score_before_normalization": 0.9810017577346408,
+      "normalized_score": 0.9810017577346408,
+      "weighted_points": 19.620035154692815,
+      "internal_values": {
+        "sample_pcc": 0.9877978339349773,
+        "sample_r2": 0.9742056815343043
+      },
+      "internal_proxy_values": {
+        "sample_pcc": 0.9877978339349773,
+        "sample_r2": 0.9742056815343043
+      },
+      "internal_weights": {
+        "sample_pcc": 0.5,
+        "sample_r2": 0.5
+      },
+      "normalized_components": {
+        "sample_pcc": 0.9877978339349773,
+        "sample_r2": 0.9742056815343043
+      },
+      "normalization": "clip_0_1",
+      "coverage": {
+        "target_samples": 2806
+      }
+    },
+    "m2": {
+      "module_id": "m2",
+      "name": "matched_control_raw_fc",
+      "official_weight": 0.25,
+      "raw_score": 0.3960791618811969,
+      "proxy_score_before_normalization": 0.3960791618811969,
+      "normalized_score": 0.3960791618811969,
+      "weighted_points": 9.901979047029922,
+      "internal_values": {
+        "fc_pcc": 0.3960791618811969
+      },
+      "internal_proxy_values": {
+        "fc_pcc": 0.3960791618811969
+      },
+      "internal_weights": {
+        "fc_pcc": 1.0
+      },
+      "normalized_components": {
+        "fc_pcc": 0.3960791618811969
+      },
+      "normalization": "clip_0_1",
+      "coverage": {
+        "target_samples": 2806,
+        "matched_control_samples": 2806
+      }
+    },
+    "m3": {
+      "module_id": "m3",
+      "name": "context_mean_residual",
+      "official_weight": 0.2,
+      "raw_score": 0.2207118597388072,
+      "proxy_score_before_normalization": 0.21946841264168715,
+      "normalized_score": 0.21946841264168715,
+      "weighted_points": 4.3893682528337425,
+      "internal_values": {
+        "context_residual_pcc": 0.2207118597388072
+      },
+      "internal_proxy_values": {
+        "context_residual_pcc": 0.21946841264168715
+      },
+      "internal_weights": {
+        "context_residual_pcc": 1.0
+      },
+      "normalized_components": {
+        "context_residual_pcc": 0.21946841264168715
+      },
+      "normalization": "clip_0_1",
+      "coverage": {
+        "target_samples": 1065,
+        "matched_reference_samples": 1059
+      }
+    },
+    "m4": {
+      "module_id": "m4",
+      "name": "drug_mean_residual",
+      "official_weight": 0.2,
+      "raw_score": 0.3294257187085095,
+      "proxy_score_before_normalization": 0.3294257187085095,
+      "normalized_score": 0.3294257187085095,
+      "weighted_points": 6.58851437417019,
+      "internal_values": {
+        "drug_residual_pcc": 0.3294257187085095
+      },
+      "internal_proxy_values": {
+        "drug_residual_pcc": 0.3294257187085095
+      },
+      "internal_weights": {
+        "drug_residual_pcc": 1.0
+      },
+      "normalized_components": {
+        "drug_residual_pcc": 0.3294257187085095
+      },
+      "normalization": "clip_0_1",
+      "coverage": {
+        "target_samples": 1333,
+        "matched_reference_samples": 1333
+      }
+    },
+    "m5": {
+      "module_id": "m5",
+      "name": "dual_unseen_and_time_interpolation",
+      "official_weight": 0.1,
+      "raw_score": 0.6954422560330996,
+      "proxy_score_before_normalization": 0.6954422560330996,
+      "normalized_score": 0.6954422560330996,
+      "weighted_points": 6.954422560330996,
+      "internal_values": {
+        "both_sample_pcc": 0.9836250835537371,
+        "both_sample_r2": 0.9659923400209377,
+        "both_fc_pcc": 0.251280773036104,
+        "time_sample_pcc": 0.9930119713772463,
+        "time_sample_r2": 0.9846193504188532,
+        "time_fc_pcc": 0.5668638784109074
+      },
+      "internal_proxy_values": {
+        "both_sample_pcc": 0.9836250835537371,
+        "both_sample_r2": 0.9659923400209377,
+        "both_fc_pcc": 0.251280773036104,
+        "time_sample_pcc": 0.9930119713772463,
+        "time_sample_r2": 0.9846193504188532,
+        "time_fc_pcc": 0.5668638784109074
+      },
+      "internal_weights": {
+        "both_sample_pcc": 0.125,
+        "both_sample_r2": 0.125,
+        "both_fc_pcc": 0.25,
+        "time_sample_pcc": 0.125,
+        "time_sample_r2": 0.125,
+        "time_fc_pcc": 0.25
+      },
+      "normalized_components": {
+        "both_sample_pcc": 0.9836250835537371,
+        "both_sample_r2": 0.9659923400209377,
+        "both_fc_pcc": 0.251280773036104,
+        "time_sample_pcc": 0.9930119713772463,
+        "time_sample_r2": 0.9846193504188532,
+        "time_fc_pcc": 0.5668638784109074
+      },
+      "normalization": "clip_0_1",
+      "coverage": {
+        "val_both": {
+          "target_samples": 269,
+          "fc_evaluated_samples": 269,
+          "interpretation": "dual_unseen"
+        },
+        "val_time": {
+          "target_samples": 139,
+          "fc_evaluated_samples": 139,
+          "interpretation": "temporal_interpolation"
+        }
+      }
+    },
+    "m6": {
+      "module_id": "m6",
+      "name": "high_effect_and_dep_detection",
+      "official_weight": 0.05,
+      "raw_score": 0.46758393145947613,
+      "proxy_score_before_normalization": 0.46758393145947613,
+      "normalized_score": 0.4675839314594762,
+      "weighted_points": 2.337919657297381,
+      "internal_values": {
+        "direction_accuracy": 0.854469802358662,
+        "high_effect_pcc": 0.6876413099995269,
+        "f1": 0.2074930854275852,
+        "average_precision": 0.12073152805213057
+      },
+      "internal_proxy_values": {
+        "direction_accuracy": 0.854469802358662,
+        "high_effect_pcc": 0.6876413099995269,
+        "f1": 0.2074930854275852,
+        "average_precision": 0.12073152805213057
+      },
+      "internal_weights": {
+        "direction_accuracy": 0.25,
+        "high_effect_pcc": 0.25,
+        "f1": 0.25,
+        "average_precision": 0.25
+      },
+      "normalized_components": {
+        "direction_accuracy": 0.854469802358662,
+        "high_effect_pcc": 0.6876413099995269,
+        "f1": 0.2074930854275852,
+        "average_precision": 0.12073152805213057
+      },
+      "normalization": "clip_0_1",
+      "coverage": {
+        "control_matched_samples": 2806,
+        "paired_values": 10454269,
+        "truth_high_effect_values": 239373
+      }
+    }
+  },
+  "metrics": {
+    "absolute_all": {
+      "sample_pcc": {
+        "value": 0.9877978339349773,
+        "aggregation": "per_sample_mean",
+        "evaluated_samples": 2806,
+        "undefined_samples": 0,
+        "proxy_value": 0.9877978339349773,
+        "proxy_undefined_policy": "zero"
+      },
+      "sample_r2": {
+        "value": 0.9742056815343043,
+        "aggregation": "per_sample_mean",
+        "evaluated_samples": 2806,
+        "undefined_samples": 0,
+        "proxy_value": 0.9742056815343043,
+        "proxy_undefined_policy": "zero"
+      },
+      "sample_rmse": {
+        "value": 0.4213454510140008,
+        "aggregation": "per_sample_mean",
+        "evaluated_samples": 2806,
+        "undefined_samples": 0
+      },
+      "sample_mae": {
+        "value": 0.2909616621789726,
+        "aggregation": "per_sample_mean",
+        "evaluated_samples": 2806,
+        "undefined_samples": 0
+      },
+      "samples": 2806,
+      "paired_values": 10639842
+    },
+    "matched_control_fc_all": {
+      "pcc": {
+        "value": 0.3960791618811969,
+        "aggregation": "per_sample_mean",
+        "evaluated_samples": 2806,
+        "undefined_samples": 0,
+        "proxy_value": 0.3960791618811969,
+        "proxy_undefined_policy": "zero"
+      },
+      "r2": {
+        "value": -0.6927366002075258,
+        "aggregation": "per_sample_mean",
+        "evaluated_samples": 2806,
+        "undefined_samples": 0
+      },
+      "rmse": {
+        "value": 0.4159367249109886,
+        "aggregation": "per_sample_mean",
+        "evaluated_samples": 2806,
+        "undefined_samples": 0
+      },
+      "mae": {
+        "value": 0.2879779097073442,
+        "aggregation": "per_sample_mean",
+        "evaluated_samples": 2806,
+        "undefined_samples": 0
+      },
+      "candidate_samples": 2806,
+      "matched_samples": 2806
+    },
+    "context_residual_val_chem_only": {
+      "pcc": {
+        "value": 0.2207118597388072,
+        "aggregation": "per_sample_mean",
+        "evaluated_samples": 1059,
+        "undefined_samples": 6,
+        "proxy_value": 0.21946841264168715,
+        "proxy_undefined_policy": "zero"
+      },
+      "r2": {
+        "value": -0.20274979499644546,
+        "aggregation": "per_sample_mean",
+        "evaluated_samples": 1059,
+        "undefined_samples": 6
+      },
+      "rmse": {
+        "value": 0.3195876128001569,
+        "aggregation": "per_sample_mean",
+        "evaluated_samples": 1059,
+        "undefined_samples": 6
+      },
+      "mae": {
+        "value": 0.22269480580442366,
+        "aggregation": "per_sample_mean",
+        "evaluated_samples": 1059,
+        "undefined_samples": 6
+      },
+      "candidate_samples": 1065,
+      "matched_samples": 1059
+    },
+    "drug_residual_val_strain_only": {
+      "pcc": {
+        "value": 0.3294257187085095,
+        "aggregation": "per_sample_mean",
+        "evaluated_samples": 1333,
+        "undefined_samples": 0,
+        "proxy_value": 0.3294257187085095,
+        "proxy_undefined_policy": "zero"
+      },
+      "r2": {
+        "value": -1.1850888768628849,
+        "aggregation": "per_sample_mean",
+        "evaluated_samples": 1333,
+        "undefined_samples": 0
+      },
+      "rmse": {
+        "value": 0.4867160503909952,
+        "aggregation": "per_sample_mean",
+        "evaluated_samples": 1333,
+        "undefined_samples": 0
+      },
+      "mae": {
+        "value": 0.3361427375027633,
+        "aggregation": "per_sample_mean",
+        "evaluated_samples": 1333,
+        "undefined_samples": 0
+      },
+      "candidate_samples": 1333,
+      "matched_samples": 1333
+    },
+    "dep": {
+      "threshold": 1.0,
+      "paired_values": 10454269,
+      "truth_high_effect_values": 239373,
+      "predicted_high_effect_values": 297175,
+      "prevalence": 0.02289715330646265,
+      "direction_accuracy": 0.854469802358662,
+      "high_effect_pcc_per_sample": 0.6876413099995269,
+      "high_effect_pcc_per_sample_proxy": 0.6876413099995269,
+      "high_effect_pcc_pooled": 0.6899487520368767,
+      "high_effect_pcc_evaluated_samples": 2806,
+      "high_effect_pcc_undefined_samples": 0,
+      "precision": 0.18731387229746782,
+      "recall": 0.2325450238748731,
+      "f1": 0.2074930854275852,
+      "average_precision": 0.12073152805213057,
+      "pr_auc_trapezoid": 0.12072771129318333,
+      "recall_at_truth_count": 0.2234124930243677,
+      "recall_at_truth_count_evaluated_samples": 2806,
+      "recall_at_truth_count_undefined_samples": 0,
+      "fixed_k": {
+        "recall_at_10": {
+          "value": 0.0584124152177031,
+          "evaluated_samples": 2806,
+          "undefined_samples": 0
+        },
+        "recall_at_50": {
+          "value": 0.18501670311170473,
+          "evaluated_samples": 2806,
+          "undefined_samples": 0
+        },
+        "recall_at_100": {
+          "value": 0.2810116634392494,
+          "evaluated_samples": 2806,
+          "undefined_samples": 0
+        }
+      },
+      "confusion": {
+        "tp": 55665,
+        "fp": 241510,
+        "fn": 183708,
+        "tn": 9973386
+      }
+    },
+    "by_split": {
+      "val_chem_only": {
+        "absolute": {
+          "sample_pcc": {
+            "value": 0.992862749092955,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 1065,
+            "undefined_samples": 0,
+            "proxy_value": 0.992862749092955,
+            "proxy_undefined_policy": "zero"
+          },
+          "sample_r2": {
+            "value": 0.984727723738844,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 1065,
+            "undefined_samples": 0,
+            "proxy_value": 0.984727723738844,
+            "proxy_undefined_policy": "zero"
+          },
+          "sample_rmse": {
+            "value": 0.32655634047181786,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 1065,
+            "undefined_samples": 0
+          },
+          "sample_mae": {
+            "value": 0.22613353433354508,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 1065,
+            "undefined_samples": 0
+          },
+          "samples": 1065,
+          "paired_values": 4021051
+        },
+        "fc": {
+          "pcc": {
+            "value": 0.46761091611426947,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 1065,
+            "undefined_samples": 0,
+            "proxy_value": 0.46761091611426947,
+            "proxy_undefined_policy": "zero"
+          },
+          "r2": {
+            "value": -0.02617808991148939,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 1065,
+            "undefined_samples": 0
+          },
+          "rmse": {
+            "value": 0.3201844410373059,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 1065,
+            "undefined_samples": 0
+          },
+          "mae": {
+            "value": 0.22299825073599322,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 1065,
+            "undefined_samples": 0
+          },
+          "candidate_samples": 1065,
+          "matched_samples": 1065
+        }
+      },
+      "val_strain_only": {
+        "absolute": {
+          "sample_pcc": {
+            "value": 0.9840495744487299,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 1333,
+            "undefined_samples": 0,
+            "proxy_value": 0.9840495744487299,
+            "proxy_undefined_policy": "zero"
+          },
+          "sample_r2": {
+            "value": 0.9663706582367111,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 1333,
+            "undefined_samples": 0,
+            "proxy_value": 0.9663706582367111,
+            "proxy_undefined_policy": "zero"
+          },
+          "sample_rmse": {
+            "value": 0.49151077473250143,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 1333,
+            "undefined_samples": 0
+          },
+          "sample_mae": {
+            "value": 0.339086215893248,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 1333,
+            "undefined_samples": 0
+          },
+          "samples": 1333,
+          "paired_values": 5088955
+        },
+        "fc": {
+          "pcc": {
+            "value": 0.3503405067750289,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 1333,
+            "undefined_samples": 0,
+            "proxy_value": 0.3503405067750289,
+            "proxy_undefined_policy": "zero"
+          },
+          "r2": {
+            "value": -1.1580972815189203,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 1333,
+            "undefined_samples": 0
+          },
+          "rmse": {
+            "value": 0.4867145642011953,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 1333,
+            "undefined_samples": 0
+          },
+          "mae": {
+            "value": 0.3361419141611824,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 1333,
+            "undefined_samples": 0
+          },
+          "candidate_samples": 1333,
+          "matched_samples": 1333
+        }
+      },
+      "val_both": {
+        "absolute": {
+          "sample_pcc": {
+            "value": 0.9836250835537371,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 269,
+            "undefined_samples": 0,
+            "proxy_value": 0.9836250835537371,
+            "proxy_undefined_policy": "zero"
+          },
+          "sample_r2": {
+            "value": 0.9659923400209377,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 269,
+            "undefined_samples": 0,
+            "proxy_value": 0.9659923400209377,
+            "proxy_undefined_policy": "zero"
+          },
+          "sample_rmse": {
+            "value": 0.5009266554282514,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 269,
+            "undefined_samples": 0
+          },
+          "sample_mae": {
+            "value": 0.3428634405694795,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 269,
+            "undefined_samples": 0
+          },
+          "samples": 269,
+          "paired_values": 1008739
+        },
+        "fc": {
+          "pcc": {
+            "value": 0.251280773036104,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 269,
+            "undefined_samples": 0,
+            "proxy_value": 0.251280773036104,
+            "proxy_undefined_policy": "zero"
+          },
+          "r2": {
+            "value": -1.5069657515550712,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 269,
+            "undefined_samples": 0
+          },
+          "rmse": {
+            "value": 0.49607726617972364,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 269,
+            "undefined_samples": 0
+          },
+          "mae": {
+            "value": 0.34009723873775677,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 269,
+            "undefined_samples": 0
+          },
+          "candidate_samples": 269,
+          "matched_samples": 269
+        }
+      },
+      "val_time": {
+        "absolute": {
+          "sample_pcc": {
+            "value": 0.9930119713772463,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 139,
+            "undefined_samples": 0,
+            "proxy_value": 0.9930119713772463,
+            "proxy_undefined_policy": "zero"
+          },
+          "sample_r2": {
+            "value": 0.9846193504188532,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 139,
+            "undefined_samples": 0,
+            "proxy_value": 0.9846193504188532,
+            "proxy_undefined_policy": "zero"
+          },
+          "sample_rmse": {
+            "value": 0.32071726556961233,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 139,
+            "undefined_samples": 0
+          },
+          "sample_mae": {
+            "value": 0.225712364820735,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 139,
+            "undefined_samples": 0
+          },
+          "samples": 139,
+          "paired_values": 521097
+        },
+        "fc": {
+          "pcc": {
+            "value": 0.5668638784109074,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 139,
+            "undefined_samples": 0,
+            "proxy_value": 0.5668638784109074,
+            "proxy_undefined_policy": "zero"
+          },
+          "r2": {
+            "value": 0.23869229501045713,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 139,
+            "undefined_samples": 0
+          },
+          "rmse": {
+            "value": 0.3157318108846346,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 139,
+            "undefined_samples": 0
+          },
+          "mae": {
+            "value": 0.22309027919181637,
+            "aggregation": "per_sample_mean",
+            "evaluated_samples": 139,
+            "undefined_samples": 0
+          },
+          "candidate_samples": 139,
+          "matched_samples": 139
+        }
+      }
+    }
+  },
+  "coverage": {
+    "control_match_rate": 1.0,
+    "context_reference_rate_val_chem_only": 0.9943661971830986,
+    "drug_reference_rate_val_strain_only": 1.0,
+    "mixed_solvent_target_count": 2617,
+    "targets_using_train_control": 1198,
+    "targets_using_validation_control": 1644,
+    "targets_using_both_train_and_validation_controls": 36
+  },
+  "input_audit": {
+    "observed_split_counts": {
+      "train": 5920,
+      "val_strain_only": 1547,
+      "val_chem_only": 1065,
+      "val_both": 269,
+      "val_time": 157
+    },
+    "scored_target_counts": {
+      "val_strain_only": 1333,
+      "val_chem_only": 1065,
+      "val_both": 269,
+      "val_time": 139
+    },
+    "target_truth_finite_values": 10639842,
+    "target_truth_missing_values": 1768290,
+    "prediction_finite_values": 12408132,
+    "prediction_min_log2": 10.430644989013672,
+    "prediction_max_log2": 34.46989059448242,
+    "prediction_scale_validation": "contract_and_provenance_only_numeric_scale_is_not_uniquely_inferable"
+  },
+  "train_reference": {
+    "fit_split": "train",
+    "source_treatment_samples": 5066,
+    "source_control_samples": 751,
+    "source_control_sample_ids_sha256": "118d49449f1916c9ed59d013001b822e1e0a0529926b7c0f3ec94aa8b160434b",
+    "matched_source_deltas": 5066,
+    "unmatched_train_treatments": 12,
+    "context_keys": [
+      "data_source",
+      "Strains",
+      "Medium",
+      "Temperature",
+      "pert_time",
+      "pert_time_unit",
+      "instrument",
+      "Yeast_cell_plate"
+    ],
+    "drug_key": "perturbation_no_concentration",
+    "context_reference_groups": 381,
+    "drug_reference_groups": 37,
+    "reference_sha256": "f59e2c823e4ee5547d8910f94e8eebacd1660c44b02e9a31a0d82c2fb449b477"
+  },
+  "warnings": [
+    "The organizer has not published an executable scorer or the exact within-module aggregation.",
+    "The organizer has not published the executable Water-versus-DMSO selection map; this profile pools all exact matches and reports mixed-solvent cases.",
+    "The handbook does not explicitly state whether absolute fidelity includes control samples; this profile scores treatment samples only and reports that scope.",
+    "Train context and drug references use sample-weighted means; equal weighting by unique drug or context is not specified by the handbook.",
+    "Module 5 equal component weights and module 6 equal component weights are local versioned assumptions.",
+    "Negative PCC/R2 values are preserved raw and clipped to zero only for the provisional proxy.",
+    "Context-reference coverage in val_chem_only is 99.437%.",
+    "2617 targets matched both Water and DMSO; configured pooling policy was used."
+  ],
+  "artifacts": {
+    "sample_metrics": "/data1/huangxianzhe/AIVC/competitions/goai-2026-virtual-yeast-perturbation/experiments/20260816-2017_b16-a2-conditional-residual-vae-seed42/metrics/six-module.details/sample_metrics.csv.gz",
+    "sample_metrics_sha256": "f239a3bf6d077aadc23ed1fbf39ff5a0b9a1ede2cf674aeae877670dfac46d9f",
+    "control_matches": "/data1/huangxianzhe/AIVC/competitions/goai-2026-virtual-yeast-perturbation/experiments/20260816-2017_b16-a2-conditional-residual-vae-seed42/metrics/six-module.details/control_matches.csv.gz",
+    "control_matches_sha256": "b5672ff434dad9d3172cf60427cab6fa9f599160acf614ca4cbdd00f9f2e2c0a",
+    "train_reference_manifest": "/data1/huangxianzhe/AIVC/competitions/goai-2026-virtual-yeast-perturbation/experiments/20260816-2017_b16-a2-conditional-residual-vae-seed42/metrics/six-module.details/train_reference_manifest.json",
+    "train_reference_manifest_sha256": "d3b57b43d44f4e15137ab85c328d220e17ea9f6f349d39175e3dd4eec8d8bdb6",
+    "score_summary": "/data1/huangxianzhe/AIVC/competitions/goai-2026-virtual-yeast-perturbation/experiments/20260816-2017_b16-a2-conditional-residual-vae-seed42/metrics/six-module.details/score_summary.csv",
+    "score_summary_sha256": "7415c5c8906d5a17ed982f36a24637d00ee25cce9579e5058e0d326f03ba4b62",
+    "component_metrics": "/data1/huangxianzhe/AIVC/competitions/goai-2026-virtual-yeast-perturbation/experiments/20260816-2017_b16-a2-conditional-residual-vae-seed42/metrics/six-module.details/component_metrics.csv",
+    "component_metrics_sha256": "3f47fc4790ef09f93b576f2c85a4c1842f468f09d701e1a98f5efa331a48acb2"
+  }
+}

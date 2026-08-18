@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "audit_scope": "non-QC split_final=train rows only",
+  "validation_posterior_calls": 0,
+  "test_posterior_calls": 0,
+  "inference_distribution": "conditional prior mean only; no sampling",
+  "latent_dim": 64,
+  "raw_kl_nats_per_sample_mean": 10.083827018737793,
+  "raw_kl_nats_per_sample_median": 9.53603458404541,
+  "raw_kl_per_dimension_mean": 0.15755979716777802,
+  "active_units_q_mu_variance_gt_0p01": 64,
+  "q_mu_variance_mean": 0.45338544249534607,
+  "q_mu_variance_max": 1.3881089687347412,
+  "prior_mu_variance_mean": 0.04809430241584778,
+  "posterior_prior_mu_abs_gap_mean": 0.5214253067970276,
+  "train_masked_rmse": {
+    "e7": 0.2917437705815197,
+    "prior": 0.2900563190473748,
+    "posterior_mean": 0.2807695095622506
+  },
+  "collapse_rule": "flag if active_units<5 or mean raw KL<0.1 nat/sample",
+  "posterior_collapse_flag": false
+}

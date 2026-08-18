@@ -1,0 +1,122 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "20260816-2017_b16-a2-conditional-residual-vae-seed42",
+  "method_id": "b16-a2-conditional-residual-vae",
+  "selection_policy": "official validation prior-mean masked RMSE; epoch 0 exact E7 fallback; patience 40",
+  "completed_epochs": 41,
+  "best_epoch": 1,
+  "best_official_validation_masked_rmse": 0.43480240390460434,
+  "total_100": 49.79223904635505,
+  "modules": {
+    "m1": 0.9810017577346408,
+    "m2": 0.3960791618811969,
+    "m3": 0.21946841264168715,
+    "m4": 0.3294257187085095,
+    "m5": 0.6954422560330996,
+    "m6": 0.4675839314594762
+  },
+  "scenario_metrics": {
+    "val_chem_only": {
+      "log2_rmse": 0.32655634047181786,
+      "delta_pcc": 0.46761091611426947
+    },
+    "val_strain_only": {
+      "log2_rmse": 0.49151077473250143,
+      "delta_pcc": 0.3503405067750289
+    },
+    "val_both": {
+      "log2_rmse": 0.5009266554282514,
+      "delta_pcc": 0.251280773036104
+    },
+    "val_time": {
+      "log2_rmse": 0.32071726556961233,
+      "delta_pcc": 0.5668638784109074
+    }
+  },
+  "wandb": {
+    "mode": "online",
+    "project": "goai-2026-virtual-yeast-perturbation",
+    "entity": "oliver0128",
+    "run_id": "u9tnpgvi",
+    "run_name": "20260816-2017_b16-a2-conditional-residual-vae-seed42",
+    "run_path": "oliver0128/goai-2026-virtual-yeast-perturbation/u9tnpgvi",
+    "run_url": "https://wandb.ai/oliver0128/goai-2026-virtual-yeast-perturbation/runs/u9tnpgvi",
+    "cloud_synced": true,
+    "model_artifact_uploaded": false,
+    "prediction_uploaded": false
+  },
+  "resource": {
+    "python": "3.13.14",
+    "torch": "2.13.0+cu132",
+    "device": "cuda:0",
+    "device_name": "NVIDIA H100 PCIe",
+    "cuda_visible_devices": "1",
+    "runtime_device_mapping": "runtime cuda:0 maps to physical GPU 1",
+    "peak_gpu_memory_allocated_bytes": 190413824,
+    "elapsed_seconds": 128.51732712611556,
+    "omp_num_threads": "2",
+    "mkl_num_threads": "2",
+    "distributed_training": false,
+    "gpu_allocation_note": "physical GPU1 used because GPU2 was occupied by the parallel OOF build; same-card top-level concurrency was approved"
+  },
+  "boundary_audit": {
+    "metadata_sha256": "9414f22d71e925a3b85544b49fde252613c87808d34738a84785003adb8131ef",
+    "proteome_sha256": "a15d9a40a6ad4e8e84a4ce4ed08644fce78780d31ace5561928517c4a5fa7ccb",
+    "sample_axis_sha256": "a2bde66162df191b5d7dc6c42773a564a67420802aa643cd90a0a2ad55a94a7d",
+    "protein_axis_sha256": "f112e7fffae4d3158ec9985a6c9cfa25e1a7dd40f847092561ea023bc1d8a45f",
+    "train_rows": 5920,
+    "fit_rows_excluding_qc": 5829,
+    "matched_train_treatment_rows": 5066,
+    "unmatched_train_treatment_rows": 12,
+    "validation_target_rows": 2806,
+    "validation_treatment_rows_for_early_stopping": 2806,
+    "retained_proteins": 4422,
+    "missing_rate_threshold": 0.8,
+    "test_proteome_loaded": false,
+    "official_validation_used_for_gradient_training": false,
+    "official_validation_used_for_early_stopping": true,
+    "validation_target_entered_posterior_encoder": false,
+    "test_target_entered_posterior_encoder": false,
+    "protein_filter_fit_scope": "split_final=train only",
+    "metadata_categories_and_numeric_statistics_fit_scope": "non-QC split_final=train rows only",
+    "descriptor_statistics_fit_scope": "non-QC split_final=train rows only",
+    "validation_or_test_truth_used_for_features": false
+  },
+  "model_audit": {
+    "additional_parameter_count": 1148070,
+    "frozen_e7_parameter_count": 2007366,
+    "prediction": {
+      "correction_abs_mean": 0.020368220325690443,
+      "correction_abs_max": 0.21554306149482727,
+      "correction_saturation_fraction": 0.0,
+      "inference_distribution": "prior_mean",
+      "posterior_calls": 0
+    },
+    "latent": {
+      "schema_version": "1.0",
+      "audit_scope": "non-QC split_final=train rows only",
+      "validation_posterior_calls": 0,
+      "test_posterior_calls": 0,
+      "inference_distribution": "conditional prior mean only; no sampling",
+      "latent_dim": 64,
+      "raw_kl_nats_per_sample_mean": 10.083827018737793,
+      "raw_kl_nats_per_sample_median": 9.53603458404541,
+      "raw_kl_per_dimension_mean": 0.15755979716777802,
+      "active_units_q_mu_variance_gt_0p01": 64,
+      "q_mu_variance_mean": 0.45338544249534607,
+      "q_mu_variance_max": 1.3881089687347412,
+      "prior_mu_variance_mean": 0.04809430241584778,
+      "posterior_prior_mu_abs_gap_mean": 0.5214253067970276,
+      "train_masked_rmse": {
+        "e7": 0.2917437705815197,
+        "prior": 0.2900563190473748,
+        "posterior_mean": 0.2807695095622506
+      },
+      "collapse_rule": "flag if active_units<5 or mean raw KL<0.1 nat/sample",
+      "posterior_collapse_flag": false
+    }
+  },
+  "metrics_sha256": "60e19de42444aa65901017d242b8635084354a7c1d80ea423ae29e133f1892ee",
+  "model_sha256": "501e1158332b464c86daddb56b9a1837be19dfcfc2ddd315a5943734d205a9ad",
+  "prediction_sha256": "19656cfca94c1bf45560e78531bd3148f4c03d324bd3783c00027e40fe89adb2"
+}

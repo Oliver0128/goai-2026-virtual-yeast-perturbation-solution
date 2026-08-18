@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-16T14:59:28.858769+08:00",
+  "species": "Saccharomyces cerevisiae",
+  "ncbi_species_taxon_id": 4932,
+  "competition_strains": [
+    "BAH",
+    "BAI",
+    "CEK",
+    "CGD",
+    "CRD",
+    "DHY210"
+  ],
+  "exact_1011_project_mappings": [
+    "BAH",
+    "BAI",
+    "CEK",
+    "CGD",
+    "CRD"
+  ],
+  "unresolved_exact_genotype_and_accession": [
+    "DHY210"
+  ],
+  "dh_y210_proxy_policy": "Official tutorial describes DHY210 as S288C-derived and permits S288C proxy; exact DHY210 accession and variants remain unresolved; no 1011-population embedding is imputed",
+  "ncbi_assembly_audit": {
+    "BAH": "GCA_003277085.1",
+    "BAI": "GCA_003276965.1",
+    "CEK": "not found by exact isolate name in 1,755 S. cerevisiae assembly records",
+    "CGD": "not found by exact isolate name in 1,755 S. cerevisiae assembly records",
+    "CRD": "not found by exact isolate name in 1,755 S. cerevisiae assembly records",
+    "DHY210_proxy": "GCF_000146045.2"
+  },
+  "population_embedding": {
+    "method": "PCA over concatenated column-standardized 1011 SNP-distance and ORF-distance matrices",
+    "fit_population_count": 1011,
+    "dimension": 32,
+    "competition_coverage": 5,
+    "learned_from_competition_labels_or_proteomes": false
+  },
+  "genomic_feature_shapes": {
+    "presence": [
+      5,
+      7796
+    ],
+    "copy_number": [
+      5,
+      7796
+    ],
+    "frameshift": [
+      5,
+      6575
+    ]
+  },
+  "strain_proteome": {
+    "source": "Peter et al. 2018 1011proteome.tar.gz",
+    "archive_md5_verified": "1bb03292cc91a87fb724d70a33ea3c67",
+    "archive_design": "SNP-inferred proteomes organized by reference gene; gene presence/absence respected; one heterozygous allele randomly selected by source project",
+    "competition_strain_coverage": 5,
+    "competition_axis_shape": [
+      6,
+      5243
+    ],
+    "per_strain_axis_coverage": {
+      "BAH": 5168,
+      "BAI": 5168,
+      "CEK": 5159,
+      "CGD": 4921,
+      "CRD": 5162,
+      "DHY210": 0
+    },
+    "identity_definition": "position-wise amino-acid identity only when source and S288C canonical sequences have equal length; unequal lengths remain NaN with a separate length ratio",
+    "dhy210_policy": "exact strain proteome unavailable; row remains missing and is never fabricated from S288C"
+  },
+  "identity_search_audit": {
+    "ena_exact_unresolved": [
+      "CEK",
+      "CGD",
+      "CRD"
+    ],
+    "ena_scrap_secondary_candidates": {
+      "BAH": "GCA_949124635",
+      "BAI": "GCA_949124515"
+    },
+    "dhy210_exact_literature_hits": 0,
+    "policy": "Candidates never replace exact isolate identity without direct source-level equivalence evidence"
+  },
+  "phenotype_feature_policy": "diagnostic_only_high_leakage_risk; overlaps perturbation conditions and is not approved as primary model input",
+  "hashes": {
+    "peter-2018-supplementary-tables.xls": "b11de13b50bcf91bb2a40cdbd0f2f35372bdef6fc9a018d7538cf5e5eea7f273",
+    "1011DistanceMatrixBasedOnSNPs.tab.gz": "140da4e5193584c01e60c554a2ba5075a542d925be540afe7c7a92b7377af928",
+    "1011DistanceMatrixBasedOnORFs.tab.gz": "d443b51a9cbff5b7f223b088902bdf1db711ed07aa692eac0834fd1309420568",
+    "genesMatrix_PresenceAbsence.tab.gz": "63b62d6761c378f71360a259add9ad3317befb27cfa45944d0b11433766bf7fc",
+    "genesMatrix_CopyNumber.tab.gz": "d22fe0a2024921163739553afb612e97e229c99b51a4301021c2433e11b2ee4d",
+    "genesMatrix_Frameshift.tab.gz": "110debdf846e48ff71d21c69ec66b1dfde0239be3e199ba432544d218634bee5",
+    "phenoMatrix_35ConditionsNormalizedByYPD.tab.gz": "7696369a6ad4ea98ed99708b2df59a2916ae34846f909648f241c1194c7347d9",
+    "1011proteome.tar.gz": "3ebccce2e998eff30b66b94b8cbc8a3ad281244ce3d9e71999bb86ba6e2e5252",
+    "scerevisiae-assembly-report-page1.json": "b03d01e189bee00d6c6c78c6afcb47ff717f06a8341c95a2f211b11ecc4a6667",
+    "scerevisiae-assembly-report-page2.json": "9af6d15a206544415dd052f43659bb4136a81111f00cb1e1e15c617e973f33af",
+    "s288c-assembly-report.json": "8f986f9761351c5b073cd46cfbd7ea25b4d6d6b1389186f202d3a3a88b983939",
+    "protein_identity_contract_sha256": "769d3f024789bd16d9e6077f0bcaee50958d84a45f4454a33d2aec305eb9f068",
+    "contract.csv": "2d85bf2bf999d242475fd5056279e68ab6f1cc005ccfb87f12e40e43f0a151a0",
+    "pairwise-distances.csv": "c37b334d5749e78b2215eee2aa9a8aa2c362009008b839726c1488f5c3800f5c",
+    "population-distance-pca.npz": "ede89868b3afad10b4d0d061f63e8118cd222511a77f26c17b2ae63ba5b215f4",
+    "genomic-features.npz": "1b2e31a830f0f8629d626082289122d0e0adaafd5f8f141e0b7d5649c3303aed",
+    "phenotype-features-diagnostic.npz": "b6e1bdf1527e664d9857b0150a2c66914e25a8304138b48b8bb5ffdaf0239da9",
+    "strain-proteomes.fasta.gz": "2132f5f65403581d2fbc63c386479c3127ba25da751a44ef14de4cf02a12b836",
+    "strain-proteome-features.npz": "35b23e8b0460099e958df586115259a0f5bd7f94758152975acd4959273b7b7d",
+    "strain-proteome-summary.csv": "79282f3d72cf0968e6d361ed51c0e5d4c01d6175a354fbd4cb240e1d52061312",
+    "identity-search-audit.csv": "7b2fa4fb28ea60bf7b7e07c46b9b8db9784d67d5737b1852616f48fafb1260f3"
+  }
+}

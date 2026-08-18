@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "profile": "current-handbook-sample-median-v1",
+  "validation_splits": [
+    "val_chem_only",
+    "val_strain_only",
+    "val_both",
+    "val_time"
+  ],
+  "input_contract": {
+    "expected_metadata_sha256": "9414f22d71e925a3b85544b49fde252613c87808d34738a84785003adb8131ef",
+    "expected_proteome_sha256": "a15d9a40a6ad4e8e84a4ce4ed08644fce78780d31ace5561928517c4a5fa7ccb",
+    "expected_raw_proteins": 5243,
+    "expected_split_counts": {
+      "train": 5920,
+      "val_chem_only": 1065,
+      "val_strain_only": 1547,
+      "val_both": 269,
+      "val_time": 157
+    }
+  },
+  "control_labels": ["Water", "DMSO"],
+  "quality_control": {"label": "Quality Control", "pert_id": "48"},
+  "protein_filter": {"fit_split": "train", "train_missing_rate_lt": 0.8},
+  "control_matching": {
+    "semantic_fields": ["source", "strain", "medium", "temperature", "time", "instrument", "plate"],
+    "keys": ["data_source", "Strains", "Medium", "Temperature", "pert_time", "instrument", "Yeast_cell_plate"],
+    "required_equal_fields": ["pert_time_unit"],
+    "aggregation": "median",
+    "solvent_policy": "pool_all_exactly_matched_water_and_dmso_and_report_conflicts"
+  },
+  "references": {
+    "fit_split": "train",
+    "context_keys": ["data_source", "Strains", "Medium", "Temperature", "pert_time", "pert_time_unit", "instrument", "Yeast_cell_plate"],
+    "drug_key": "perturbation_no_concentration",
+    "aggregation": "mean",
+    "aggregation_unit": "matched_train_treatment_sample",
+    "unmatched_policy": "undefined_zero_in_proxy_no_global_fallback"
+  },
+  "aggregation": {
+    "per_sample": "median",
+    "score_normalization": "clip_0_1",
+    "undefined_policy": "raw_finite_only_and_zero_undefined_samples_in_proxy_without_weight_renormalization",
+    "allow_prediction_column_superset": true
+  },
+  "module_weights": {"m1": 0.20, "m2": 0.25, "m3": 0.20, "m4": 0.20, "m5": 0.10, "m6": 0.05},
+  "module_internal_weights": {
+    "m1": {"sample_pcc": 0.5, "sample_r2": 0.5},
+    "m2": {"fc_pcc": 1.0},
+    "m3": {"context_residual_pcc": 1.0},
+    "m4": {"drug_residual_pcc": 1.0},
+    "m5": {"both_sample_pcc": 0.125, "both_sample_r2": 0.125, "both_fc_pcc": 0.25, "time_sample_pcc": 0.125, "time_sample_r2": 0.125, "time_fc_pcc": 0.25},
+    "m6": {"direction_accuracy": 0.25, "high_effect_pcc": 0.25, "f1": 0.25, "average_precision": 0.25}
+  },
+  "dep": {
+    "absolute_delta_gt": 1.0,
+    "fixed_recall_ks": [10, 50, 100],
+    "module_auprc_metric": "average_precision",
+    "recall_not_used_alone": true
+  },
+  "official_sources": {
+    "handbook_date": "2026-08-14",
+    "handbook_sha256": "004b9c17dd9760cd2e760e761ab3282bd46fa9f82395df6e90afda56bedeea49",
+    "revision_sha256": "cac5dc4fe1862f08272398e16ee88961c79e9b191151beb5644cfdee89fbbe78",
+    "website_verified_at": "2026-08-15T12:35:00+08:00",
+    "official_module_weights": "20/25/20/20/10/5"
+  },
+  "known_official_ambiguities": [
+    "Sensitivity profile: per-sample and multi-control aggregation use medians.",
+    "The organizer has not published an executable scorer or exact within-module aggregation.",
+    "The handbook does not explicitly state whether absolute fidelity includes control samples; this profile scores treatment samples only and reports that scope.",
+    "Train context and drug references use sample-weighted means; equal weighting by unique drug or context is not specified by the handbook.",
+    "Module 5 and module 6 internal weights are local versioned assumptions."
+  ]
+}

@@ -1,0 +1,57 @@
+competition_name,pubchem_query,pubchem_cid,resolution,feature_molecule_policy,resolution_note
+"(1R, 2S, 5R) - (-) - Menthol",(-)-Menthol,16666,curated-alias,fragment-parent,Exact competition spelling returns 404; stereospecific PubChem alias verified.
+(S)-(+)-Camptothecin,(S)-(+)-Camptothecin,24360,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+1-10 Phenanthroline monohydrate,"1,10-Phenanthroline",1318,curated-alias,fragment-parent,"Exact competition spelling returns 404; mapped to 1,10-phenanthroline parent, hydration water omitted."
+4-Hydroxytamoxifen,4-Hydroxytamoxifen,449459,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Abietic acid,Abietic acid,10569,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Amiodarone hydrochloride,Amiodarone hydrochloride,441325,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Amphotericin B,Amphotericin B,5280965,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Anisomycin,Anisomycin,253602,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Artemisinin,Artemisinin,68827,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Brefeldin A,Brefeldin A,5287620,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+CHX,Cycloheximide,6197,curated-alias,fragment-parent,Exact abbreviation returns 404; expanded to cycloheximide.
+Cisplatin,Cisplatin,5702198,exact-name,full-record,Keep full disconnected PubChem record because fragment-parent would discard ammine fragments.
+Clomiphene citrate,Clomiphene citrate,60974,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Clotrimazole,Clotrimazole,2812,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Cyclopiazonic acid,Cyclopiazonic acid,54682463,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+DMSO,DMSO,679,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Desipramine hydrochloride,Desipramine hydrochloride,65327,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Doxycycline hyclate,Doxycycline hyclate,54686183,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Dyclonine hydrochloride,Dyclonine hydrochloride,68304,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+EDTA,EDTA,6049,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Emodin,Emodin,3220,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+FCCP,FCCP,3330,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Fluconazole,Fluconazole,3365,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+G418,G418,123865,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Geldanamycin,Geldanamycin,5288382,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+H2O2,H2O2,784,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Haloperidol,Haloperidol,3559,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Harmine hydrochloride,Harmine hydrochloride,5359389,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Hoechst 33258,Hoechst 33258,2392,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Hydroxyurea,Hydroxyurea,3657,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Hygromycin B,Hygromycin B,56928061,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+LY 294002 hydrochloride,LY 294002 hydrochloride,11957589,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+MMS,MMS,4156,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+NaCl,NaCl,5234,exact-name,full-record,Keep both ions; largest-fragment standardization is not meaningful for this control compound.
+Neomycin B,Neomycin B,8378,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Nigericin,Nigericin,34230,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Nocodazole,Nocodazole,4122,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Nystatin dihydrate,Nystatin dihydrate,154809619,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Oligomycin,Oligomycin A,52947716,curated-alias,fragment-parent,Family-level name returns 404; represented by Oligomycin A.
+Parthenolide,Parthenolide,6473881,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Pentamidine isethionate,Pentamidine isethionate,8813,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Plumbagin,Plumbagin,10205,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Raloxifene hydrochloride,Raloxifene hydrochloride,54900,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Rapamycin,Rapamycin,5284616,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+SDS,Sodium dodecyl sulfate,3423265,curated-alias,fragment-parent,Exact abbreviation returns 404; expanded to sodium dodecyl sulfate.
+Sorbitol,Sorbitol,5780,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Staurosporine,Staurosporine,44259,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Sulfometuron methyl,Sulfometuron methyl,52997,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Tamoxifen,Tamoxifen,2733526,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Trichostatin A,Trichostatin A,444732,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Trifluoperazine dihydrochloride,Trifluoperazine dihydrochloride,66064,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Tunicamycin,Tunicamycin A,11104835,curated-alias,fragment-parent,Family-level name returns 404; represented by Tunicamycin A (first PubChem alias result; mixture limitation flagged).
+U-73122,U-73122,104794,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Valinomycin,Valinomycin,3000706,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Water,Water,962,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.
+Wortmannin,Wortmannin,312145,exact-name,fragment-parent,Exact competition name resolved to this CID as the first PubChem result.

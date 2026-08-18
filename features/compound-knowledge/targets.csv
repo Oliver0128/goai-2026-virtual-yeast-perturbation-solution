@@ -1,0 +1,15 @@
+target_chembl_id,pref_name,organism,target_type,tax_id,uniprot_accessions
+CHEMBL1075095,"Acetolactate synthase catalytic subunit, mitochondrial",Saccharomyces cerevisiae S288c,SINGLE PROTEIN,559292,P07342
+CHEMBL1667687,Calmodulin,Saccharomyces cerevisiae S288c,SINGLE PROTEIN,559292,P06787
+CHEMBL1741172,Large ribosomal subunit protein eL19A,Saccharomyces cerevisiae S288c,SINGLE PROTEIN,559292,P0CX82
+CHEMBL1741180,Mitochondrial import inner membrane translocase subunit TIM23,Saccharomyces cerevisiae S288c,SINGLE PROTEIN,559292,P32897
+CHEMBL1741194,Mitochondrial import inner membrane translocase subunit TIM10,Saccharomyces cerevisiae S288c,SINGLE PROTEIN,559292,P87108
+CHEMBL1741198,Ribosome maturation protein SDO1,Saccharomyces cerevisiae S288c,SINGLE PROTEIN,559292,Q07953
+CHEMBL3224,C-8 sterol isomerase ERG2,Saccharomyces cerevisiae S288c,SINGLE PROTEIN,559292,P32352
+CHEMBL3308902,Eukaryotic peptide chain release factor GTP-binding subunit,Saccharomyces cerevisiae,SINGLE PROTEIN,4932,P05453
+CHEMBL3414417,Histone acetyltransferase RTT109,Saccharomyces cerevisiae (strain ATCC 204508 / S288c) (Baker's yeast),SINGLE PROTEIN,559292,Q07794
+CHEMBL3536,ATP-dependent molecular chaperone HSP82,Saccharomyces cerevisiae S288c,SINGLE PROTEIN,559292,P02829
+CHEMBL361,Saccharomyces cerevisiae,Saccharomyces cerevisiae,ORGANISM,4932,
+CHEMBL4515,EKC/KEOPS complex subunit BUD32,Saccharomyces cerevisiae S288c,SINGLE PROTEIN,559292,P53323
+CHEMBL4669,Histone acetyltransferase GCN5,Saccharomyces cerevisiae S288c,SINGLE PROTEIN,559292,Q03330
+CHEMBL5621,Dihydroorotate dehydrogenase (fumarate),Saccharomyces cerevisiae S288c,SINGLE PROTEIN,559292,P28272

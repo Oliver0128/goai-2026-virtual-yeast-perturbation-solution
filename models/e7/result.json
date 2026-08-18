@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "20260816-1658_b10-a2-film-cross-mlp-seed42",
+  "method_id": "b10-a2-film-cross-mlp",
+  "selection_policy": "official validation treatment rows; maximum 1000 epochs; patience 50",
+  "completed_epochs": 127,
+  "best_epoch": 77,
+  "best_official_validation_masked_rmse": 0.43571183424409843,
+  "total_100": 49.685790381432305,
+  "modules": {
+    "m1": 0.9809326991036927,
+    "m2": 0.3943340578453989,
+    "m3": 0.21661251067176218,
+    "m4": 0.329907077344997,
+    "m5": 0.6940983690413454,
+    "m6": 0.4674819004949675
+  },
+  "scenario_metrics": {
+    "val_chem_only": {
+      "log2_rmse": 0.3277994097365872,
+      "delta_pcc": 0.46457341642617
+    },
+    "val_strain_only": {
+      "log2_rmse": 0.492522942969446,
+      "delta_pcc": 0.34969724267497154
+    },
+    "val_both": {
+      "log2_rmse": 0.5022655342873075,
+      "delta_pcc": 0.25064484183767716
+    },
+    "val_time": {
+      "log2_rmse": 0.3220328237433544,
+      "delta_pcc": 0.5623078480593239
+    }
+  },
+  "wandb": {
+    "mode": "online",
+    "project": "goai-2026-virtual-yeast-perturbation",
+    "entity": "oliver0128",
+    "run_id": "n90vkd2d",
+    "run_name": "20260816-1658_b10-a2-film-cross-mlp-seed42",
+    "run_path": "oliver0128/goai-2026-virtual-yeast-perturbation/n90vkd2d",
+    "run_url": "https://wandb.ai/oliver0128/goai-2026-virtual-yeast-perturbation/runs/n90vkd2d",
+    "cloud_synced": true,
+    "model_artifact_uploaded": false,
+    "prediction_uploaded": false
+  },
+  "resource": {
+    "python": "3.13.14",
+    "torch": "2.13.0+cu132",
+    "device": "cuda",
+    "device_name": "NVIDIA H100 PCIe",
+    "cuda_visible_devices": "externally bound CUDA_VISIBLE_DEVICES=2; runtime cuda:0 maps to physical GPU 2",
+    "peak_gpu_memory_allocated_bytes": 175873024,
+    "elapsed_seconds": 172.4571173582226,
+    "omp_num_threads": 2,
+    "mkl_num_threads": 2,
+    "distributed_training": false
+  },
+  "boundary_audit": {
+    "metadata_sha256": "9414f22d71e925a3b85544b49fde252613c87808d34738a84785003adb8131ef",
+    "proteome_sha256": "a15d9a40a6ad4e8e84a4ce4ed08644fce78780d31ace5561928517c4a5fa7ccb",
+    "sample_axis_sha256": "a2bde66162df191b5d7dc6c42773a564a67420802aa643cd90a0a2ad55a94a7d",
+    "protein_axis_sha256": "f112e7fffae4d3158ec9985a6c9cfa25e1a7dd40f847092561ea023bc1d8a45f",
+    "train_rows": 5920,
+    "fit_rows_excluding_qc": 5829,
+    "validation_target_rows": 2806,
+    "validation_treatment_rows_for_early_stopping": 2806,
+    "retained_proteins": 4422,
+    "missing_rate_threshold": 0.8,
+    "test_proteome_loaded": false,
+    "official_validation_used_for_gradient_training": false,
+    "official_validation_used_for_early_stopping": true,
+    "protein_filter_fit_scope": "split_final=train only",
+    "base_profile_fit_scope": "non-QC split_final=train rows only",
+    "metadata_categories_and_numeric_statistics_fit_scope": "non-QC split_final=train rows only",
+    "descriptor_statistics_fit_scope": "non-QC split_final=train rows only",
+    "validation_or_test_truth_used_for_features": false
+  },
+  "film_audit": {
+    "gamma_abs_mean": 0.22193500032105448,
+    "gamma_abs_max": 3.407806634902954,
+    "beta_abs_mean": 0.06187676737670463,
+    "beta_abs_max": 0.39782679080963135,
+    "condition_film_abs_max": 2.964967727661133
+  },
+  "metrics_sha256": "9c8fe49ee5b3d9b19b65ba282b8337fa43fcf5ad139085a77eb3aeb3ab672f8f",
+  "model_sha256": "7f567e9b7d959459e56123ed464eaa101498ae52654bec42b4e981d49da0faf0"
+}

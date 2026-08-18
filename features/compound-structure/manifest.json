@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-08-16T11:32:43.914805+08:00",
+  "purpose": "Public compound-structure feature contract for GOAI OOD entity encoding",
+  "official_rule_evidence": {
+    "document": "GOAI Track 3 handbook revision comparison, 2026-08-14 local edition",
+    "pages": [
+      9,
+      10
+    ],
+    "rule": "Public external data may construct compound molecular-structure features; sources and versions must be disclosed.",
+    "document_sha256": "cac5dc4fe1862f08272398e16ee88961c79e9b191151beb5644cfdee89fbbe78"
+  },
+  "source": {
+    "database": "PubChem",
+    "interface": "PUG-REST",
+    "access_date": "2026-08-16",
+    "version_basis": "PubChem returned no release identifier; this snapshot is frozen by access date and raw-response SHA-256.",
+    "request": "compound/cid/<56 verified CIDs>/property/Title,IUPACName,MolecularFormula,MolecularWeight,CanonicalSMILES,IsomericSMILES,InChI,InChIKey,ExactMass,MonoisotopicMass,TPSA,HBondDonorCount,HBondAcceptorCount,RotatableBondCount,XLogP,HeavyAtomCount,Charge/JSON",
+    "citation_guidelines": "https://pubchem.ncbi.nlm.nih.gov/docs/citation-guidelines",
+    "pug_rest_documentation": "https://pubchem.ncbi.nlm.nih.gov/docs/pug-rest",
+    "retrieval_tool": "Codex pubchem_database PUG-REST wrapper",
+    "retrieval_tool_sha256": "6936a39131c473aa2bd845f0dfc76fed78c69ca982c5184a3e0b80930a184454"
+  },
+  "dependencies": {
+    "python": "3.13.14",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "rdkit": "2026.03.5"
+  },
+  "data_contract": {
+    "entity_count": 56,
+    "quality_control_excluded": true,
+    "quality_control_label": "Quality Control",
+    "metadata_identity_only": true,
+    "proteome_truth_loaded": false,
+    "learned_statistics": false,
+    "descriptor_scaling": "none; any scaling must be fit on split_final=train in the downstream model",
+    "seen_in_train_count": 39,
+    "seen_in_validation_count": 45,
+    "seen_in_test_count": 56,
+    "curated_alias_count": 6
+  },
+  "feature_contract": {
+    "source_structure": "PubChem isomeric SMILES",
+    "canonicalization": "RDKit canonical isomeric SMILES",
+    "default_feature_molecule": "RDKit FragmentParent",
+    "full_record_exceptions": [
+      "Cisplatin",
+      "NaCl"
+    ],
+    "morgan": {
+      "radius": 2,
+      "diameter": 4,
+      "fp_size": 2048,
+      "include_chirality": true,
+      "use_bond_types": true,
+      "count_simulation": false,
+      "dtype": "uint8"
+    },
+    "raw_descriptors": [
+      "mol_wt",
+      "mol_logp",
+      "tpsa",
+      "hbd",
+      "hba"
+    ]
+  },
+  "known_identity_caveats": [
+    "1-10 Phenanthroline monohydrate is represented by the anhydrous 1,10-phenanthroline parent.",
+    "Oligomycin is represented by Oligomycin A.",
+    "Tunicamycin is represented by Tunicamycin A; the family/mixture identity is not uniquely determined by metadata."
+  ],
+  "hashes": {
+    "identifiers_sha256": "6def6b7f6624cdf5264dd7b1a6cf9a71e7aeafe88c9e2fe5209aa6bd451708a7",
+    "pubchem_response_sha256": "c1185c82564a1c699ca8941e5a47849834cfb6e4a351d8429cae02e1d5ccc24b",
+    "train_metadata_sha256": "9414f22d71e925a3b85544b49fde252613c87808d34738a84785003adb8131ef",
+    "test_metadata_sha256": "42f2df9ea79f28da8344e96b5181edacc215744a858d1a4eaa729c2e1cc69d31",
+    "contract_sha256": "cbf5f6a1b5feb0202d91b5e58c123bee89354b6e86b1e534b55b3a600fa8a327",
+    "fingerprints_sha256": "d2cb4f5398182642209482624bec6c7f2da0fec9cd8425a26ac9638712f484df"
+  }
+}

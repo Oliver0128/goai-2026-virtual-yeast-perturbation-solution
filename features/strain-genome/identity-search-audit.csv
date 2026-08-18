@@ -1,0 +1,7 @@
+competition_strain,source,query,result_count,candidate_accessions,adoption_status,reason
+CEK,ENA Portal assembly exact strain search,JCM_2985-4B,0,,unresolved_no_exact_ena_assembly,No exact ENA assembly record returned
+CGD,ENA Portal assembly exact strain search,UCD_09-448,0,,unresolved_no_exact_ena_assembly,No exact ENA assembly record returned
+CRD,ENA Portal assembly exact strain search,FIMA_3,0,,unresolved_no_exact_ena_assembly,No exact ENA assembly record returned
+BAH,ENA ScRAP assembly panel,BAH,1,GCA_949124635,secondary_candidate_not_needed_for_exact_identity,NCBI Peter-2018 isolate assembly already provides exact evidence; the ENA hit is retained only as a secondary candidate
+BAI,ENA ScRAP assembly panel,BAI_1a,1,GCA_949124515,secondary_candidate_not_needed_for_exact_identity,NCBI Peter-2018 isolate assembly already provides exact evidence; BAI_1a carries a derivative suffix and is retained only as a secondary candidate
+DHY210,Crossref/Semantic Scholar/Europe PMC/PubMed exact literature search,"""DHY210"" yeast",0,,unresolved_no_exact_primary_source,"Search services returned no record containing the exact DHY210 token; S288C remains a proxy, not an identity claim"

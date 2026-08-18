@@ -1,0 +1,7 @@
+competition_strain,source,source_status,archive_sequence_count,competition_axis_sequence_count,competition_axis_equal_length_count,competition_axis_missing_count,model_policy
+BAH,Peter et al. 2018 1011proteome.tar.gz,exact_1011_standardized_name,6457,5168,5106,75,public strain proteome candidate with explicit missing mask
+BAI,Peter et al. 2018 1011proteome.tar.gz,exact_1011_standardized_name,6464,5168,5108,75,public strain proteome candidate with explicit missing mask
+CEK,Peter et al. 2018 1011proteome.tar.gz,exact_1011_standardized_name,6444,5159,5108,84,public strain proteome candidate with explicit missing mask
+CGD,Peter et al. 2018 1011proteome.tar.gz,exact_1011_standardized_name,6158,4921,4871,322,public strain proteome candidate with explicit missing mask
+CRD,Peter et al. 2018 1011proteome.tar.gz,exact_1011_standardized_name,6463,5162,5112,81,public strain proteome candidate with explicit missing mask
+DHY210,Peter et al. 2018 1011proteome.tar.gz,unavailable_exact_dhy210,0,0,0,5243,do not synthesize exact DHY210 proteome; S288C remains a separately flagged proxy

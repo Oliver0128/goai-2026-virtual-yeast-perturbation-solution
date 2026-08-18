@@ -1,0 +1,57 @@
+competition_name,pubchem_cid,pubchem_inchikey,chembl_mapping_status,chembl_id,chembl_pref_name,molecule_type,max_phase,first_approval,atc_classifications,chemical_probe
+"(1R, 2S, 5R) - (-) - Menthol",16666,NOOLISFMXDJSKH-KXUCPTDWSA-N,exact_standard_inchikey,CHEMBL470670,LEVOMENTHOL,Small molecule,3.0,,,0
+(S)-(+)-Camptothecin,24360,VSJKWCGYPAHWDS-FQEVSTJZSA-N,exact_standard_inchikey,CHEMBL65,CAMPTOTHECIN,Small molecule,-1.0,,,0
+1-10 Phenanthroline monohydrate,1318,DGEZNRSVGBDHLK-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL415879,PHENANTHROLINE,Small molecule,,,,0
+4-Hydroxytamoxifen,449459,TXUZVZSFRXZGTL-QPLCGJKRSA-N,exact_standard_inchikey,CHEMBL489,AFIMOXIFENE,Small molecule,3.0,,,0
+Abietic acid,10569,RSWGJHLUYNHPMX-ONCXSQPRSA-N,exact_standard_inchikey,CHEMBL71893,ABIETIC ACID,Small molecule,,,,0
+Amiodarone hydrochloride,441325,ITPDYQOUSLNIHG-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL1083993,AMIODARONE HYDROCHLORIDE,Small molecule,4.0,1985,,0
+Amphotericin B,5280965,APKFDSVGJQXUKY-INPOYWNPSA-N,exact_standard_inchikey,CHEMBL267345,AMPHOTERICIN B,Small molecule,4.0,1964,J02AA01;A01AB04;A07AA07;G01AA03,0
+Anisomycin,253602,YKJYKKNCCRKFSL-RDBSUJKOSA-N,exact_standard_inchikey,CHEMBL423192,ANISOMYCIN,Small molecule,,,,0
+Artemisinin,68827,BLUAFEHZUWYNDE-NNWCWBAJSA-N,exact_standard_inchikey,CHEMBL269671,ARTEMISININ,Small molecule,3.0,,P01BE01,0
+Brefeldin A,5287620,KQNZDYYTLMIZCT-KQPMLPITSA-N,exact_standard_inchikey,CHEMBL19980,BREFELDIN A,Small molecule,,,,0
+CHX,6197,YPHMISFOHDHNIV-FSZOTQKASA-N,exact_standard_inchikey,CHEMBL123292,CYCLOHEXIMIDE,Small molecule,2.0,,,0
+Cisplatin,5702198,LXZZYRPGZAFOLE-UHFFFAOYSA-L,no_exact_chembl_match,,,,,,,
+Clomiphene citrate,60974,PYTMYKVIJXPNBD-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL3185958,CLOMIPHENE CITRATE,Small molecule,4.0,1967,,0
+Clotrimazole,2812,VNFPBHJOKIVQEB-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL104,CLOTRIMAZOLE,Small molecule,4.0,1975,A01AB18;G01AF02;D01AC01,0
+Cyclopiazonic acid,54682463,SZINUGQCTHLQAZ-DQYPLSBCSA-N,exact_standard_inchikey,CHEMBL480627,CYCLOPIAZONIC ACID,Small molecule,,,,0
+DMSO,679,IAZDPXIOMUYVGZ-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL504,DIMETHYL SULFOXIDE,Small molecule,4.0,1978,G04BX13;M02AX03,0
+Desipramine hydrochloride,65327,XAEWZDYWZHIUCT-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL1696,DESIPRAMINE HYDROCHLORIDE,Small molecule,4.0,1964,,0
+Doxycycline hyclate,54686183,UHHHTIKWXBRCLT-VDBOFHIQSA-N,no_exact_chembl_match,,,,,,,
+Dyclonine hydrochloride,68304,KNZADIMHVBBPOA-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL1200478,DYCLONINE HYDROCHLORIDE,Small molecule,4.0,1982,,0
+EDTA,6049,KCXVZYZYPLLWCC-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL858,EDETIC ACID,Small molecule,3.0,,,0
+Emodin,3220,RHMXXJGYXNZAPX-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL289277,EMODIN,Small molecule,,,,0
+FCCP,3330,BMZRVOVNUMQTIN-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL457504,,Small molecule,,,,0
+Fluconazole,3365,RFHAOTPXVQNOHP-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL106,FLUCONAZOLE,Small molecule,4.0,1990,J02AC01;D01AC15,0
+G418,123865,BRZYSWJRSDMWLG-DJWUNRQOSA-N,exact_standard_inchikey,CHEMBL215226,GENETICIN,Small molecule,,,,0
+Geldanamycin,5288382,QTQAWLPCGQOSGP-KSRBKZBZSA-N,exact_standard_inchikey,CHEMBL278315,GELDANAMYCIN,Small molecule,2.0,,,0
+H2O2,784,MHAJPDPJQMAIIY-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL71595,HYDROGEN PEROXIDE,Small molecule,4.0,2017,A01AB02;D11AX25;D08AX01;S02AA06,0
+Haloperidol,3559,LNEPOXFFQSENCJ-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL54,HALOPERIDOL,Small molecule,4.0,1967,N05AD01,0
+Harmine hydrochloride,5359389,VNPLYCKZIUTKJM-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL1593867,HARMINE HYDROCHLORIDE,Small molecule,,,,0
+Hoechst 33258,2392,INAAIJLSXJJHOZ-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL301735,HOECHST 33258,Small molecule,,,,0
+Hydroxyurea,3657,VSNHCAURESNICA-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL467,HYDROXYUREA,Small molecule,4.0,1967,L01XX05,0
+Hygromycin B,56928061,GRRNUXAQVGOGFE-HUCHGKBZSA-N,exact_standard_inchikey,CHEMBL5308478,,,,,,0
+LY 294002 hydrochloride,11957589,OQZQSRICUOWBLW-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL1398499,,Small molecule,,,,0
+MMS,4156,MBABOKRGFJTBAE-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL313493,METHANESULFONIC ACID METHYL ESTER,Small molecule,,,,0
+NaCl,5234,FAPWRFPIFSIZLT-UHFFFAOYSA-M,exact_standard_inchikey,CHEMBL1200574,SODIUM CHLORIDE,Small molecule,4.0,1982,A12CA01;S01XA03;B05CB01;B05XA03,0
+Neomycin B,8378,PGBHMTALBVVCIT-VCIWKGPPSA-N,exact_standard_inchikey,CHEMBL184618,FRAMYCETIN,Small molecule,3.0,,R01AX08;D09AA01;S01AA07,0
+Nigericin,34230,DANUORFCFTYTSZ-SJSJOXFOSA-N,exact_standard_inchikey,CHEMBL405862,NIGERICIN,Small molecule,,,,0
+Nocodazole,4122,KYRVNWMVYQXFEU-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL9514,NOCODAZOLE,Small molecule,2.0,,,0
+Nystatin dihydrate,154809619,VXWFKTGGEJLHPP-LYAKXBBJSA-N,no_exact_chembl_match,,,,,,,
+Oligomycin,52947716,MNULEGDCPYONBU-AWJDAWNUSA-N,exact_standard_inchikey,CHEMBL1255855,OLIGOMYCIN,Small molecule,,,,0
+Parthenolide,6473881,KTEXNACQROZXEV-SLXBATTESA-N,exact_standard_inchikey,CHEMBL540445,PARTHENOLIDE,Small molecule,2.0,,,0
+Pentamidine isethionate,8813,YBVNFKZSMZGRAD-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL361506,PENTAMIDINE ISETHIONATE,Small molecule,4.0,1984,P01CX01,0
+Plumbagin,10205,VCMMXZQDRFWYSE-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL295316,PLUMBAGIN,Small molecule,1.0,,,0
+Raloxifene hydrochloride,54900,BKXVVCILCIUCLG-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL1116,RALOXIFENE HYDROCHLORIDE,Small molecule,4.0,1997,,0
+Rapamycin,5284616,QFJCIRLUMZQUOT-HPLJOQBZSA-N,exact_standard_inchikey,CHEMBL413,SIROLIMUS,Small molecule,4.0,1999,S01XA23;L04AH01;L01EG04,1
+SDS,3423265,DBMJMQXJHONAFJ-UHFFFAOYSA-M,exact_standard_inchikey,CHEMBL23393,SODIUM LAURYL SULFATE,Small molecule,3.0,,,0
+Sorbitol,5780,FBPFZTCFMRRESA-JGWLITMVSA-N,exact_standard_inchikey,CHEMBL1682,SORBITOL,Small molecule,4.0,1982,V04CC01;B05CX02;A06AD18;A06AG07,0
+Staurosporine,44259,HKSZLNNOFSGOKW-FYTWVXJKSA-N,exact_standard_inchikey,CHEMBL388978,STAUROSPORINE,Small molecule,,,,0
+Sulfometuron methyl,52997,ZDXMLEQEMNLCQG-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL513261,SULFOMETURON METHYL,Small molecule,,,,0
+Tamoxifen,2733526,NKANXQFJJICGDU-QPLCGJKRSA-N,exact_standard_inchikey,CHEMBL83,TAMOXIFEN,Small molecule,4.0,1977,L02BA01,0
+Trichostatin A,444732,RTKIYFITIVXBLE-QEQCGCAPSA-N,exact_standard_inchikey,CHEMBL99,TRICHOSTATIN,Small molecule,1.0,,,0
+Trifluoperazine dihydrochloride,66064,BXDAOUXDMHXPDI-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL1257040,TRIFLUOPERAZINE HYDROCHLORIDE,Small molecule,4.0,1959,,0
+Tunicamycin,11104835,MEYZYGMYMLNUHJ-DIRMKAHISA-N,exact_standard_inchikey,CHEMBL4534172,,Unknown,,,,0
+U-73122,104794,LUFAORPFSVMJIW-ZRJUGLEFSA-N,exact_standard_inchikey,CHEMBL1256678,,Small molecule,,,,0
+Valinomycin,3000706,FCFNRCROJUBPLU-DNDCDFAISA-N,exact_standard_inchikey,CHEMBL223643,VALINOMYCIN,Small molecule,,,,0
+Water,962,XLYOFNOQVPJJNP-UHFFFAOYSA-N,exact_standard_inchikey,CHEMBL1098659,WATER,Small molecule,4.0,1982,,0
+Wortmannin,312145,QDLHCMPXEPAAMD-QAIWCSMKSA-N,exact_standard_inchikey,CHEMBL428496,WORTMANNIN,Small molecule,,,,0

@@ -1,0 +1,16 @@
+[tool.pytest.ini_options]
+testpaths = [
+  "methods/b10-a2-film-cross-mlp",
+  "methods/b16-a2-conditional-residual-vae",
+  "evaluation/official-six-module-scorer/tests",
+  "features/compound-structure",
+  "submission",
+]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F"]
+ignore = ["E402", "E501"]
